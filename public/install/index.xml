@@ -26,9 +26,8 @@ git clone http://git.code.sf.net/p/linuxptp/code linuxptp
       
       <guid>/install/installation/</guid>
       <description>Installation   Just type make.
-  If you compiled your own kernel (and the headers are not installed into the system path), then you should set the KBUILD_OUTPUTenvironment variable.
-  In order to install the programs and man pages into /usr/local, run the make install target. You can change the installation directories by setttings the variables prefix, sbindir, mandir, and man8diron the make command line.
-  </description>
+  If you compiled your own kernel (and the headers are not installed into the system path), then you should set the KBUILD_OUTPUT environment variable.
+  In order to install the programs and man pages into /usr/local, run the make install target. You can change the installation directories by setttings the variables prefix, sbindir, mandir, and man8dir on the make command line.</description>
     </item>
     
     <item>
@@ -40,7 +39,7 @@ git clone http://git.code.sf.net/p/linuxptp/code linuxptp
       <description>System Requirements In order to run this software, you need Linux kernel version 3.0 or newer. Check whether your network interface supports PTP with the following command.
 ethtool -T eth0
 This command shows whether a MAC supports hardware or software time stamping. The following example output indicates support for hardware time stamping.
-The next example shows the case where the MAC only supports software time stamping. The ptp4lprogram requires either the -Scommand line argument or the time_stamping softwareconfiguration option when using such interfaces.</description>
+The next example shows the case where the MAC only supports software time stamping. The ptp4l program requires either the -S command line argument or the time_stamping software configuration option when using such interfaces.</description>
     </item>
     
   </channel>

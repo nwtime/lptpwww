@@ -17,9 +17,8 @@ If you compiled your own kernel (and the headers are not
 installed into the system path), then you should set the …">
   <meta property="og:title" content="Installation" />
 <meta property="og:description" content="Installation   Just type make.
-  If you compiled your own kernel (and the headers are not installed into the system path), then you should set the KBUILD_OUTPUTenvironment variable.
-  In order to install the programs and man pages into /usr/local, run the make install target. You can change the installation directories by setttings the variables prefix, sbindir, mandir, and man8diron the make command line.
-  " />
+  If you compiled your own kernel (and the headers are not installed into the system path), then you should set the KBUILD_OUTPUT environment variable.
+  In order to install the programs and man pages into /usr/local, run the make install target. You can change the installation directories by setttings the variables prefix, sbindir, mandir, and man8dir on the make command line." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/install/installation/" /><meta property="article:section" content="install" />
 
@@ -87,7 +86,7 @@ if (!doNotTrack) {
 </header>
 <!-- /navigation -->
 
-<section class="section pt-0 pb-0">
+<section class="section pt-0 pb-auto">
   <div class="container">
             <h3 id="installation">Installation</h3>
 <ol>
@@ -97,13 +96,13 @@ if (!doNotTrack) {
 <li>
 <p>If you compiled your own kernel (and the headers are not
 installed into the system path), then you should set the
-<!-- raw HTML omitted -->KBUILD_OUTPUT<!-- raw HTML omitted --> environment variable.</p>
+<code>KBUILD_OUTPUT</code> environment variable.</p>
 </li>
 <li>
-<p>In order to install the programs and man pages into <!-- raw HTML omitted -->/usr/local<!-- raw HTML omitted -->,
+<p>In order to install the programs and man pages into <code>/usr/local</code>,
 run the <code>make install</code> target. You can change the installation
-directories by setttings the variables <!-- raw HTML omitted -->prefix<!-- raw HTML omitted -->, <!-- raw HTML omitted -->sbindir<!-- raw HTML omitted -->, <!-- raw HTML omitted -->mandir<!-- raw HTML omitted -->,
-and <!-- raw HTML omitted -->man8dir<!-- raw HTML omitted --> on the <code>make</code> command line.</p>
+directories by setttings the variables <code>prefix</code>, <code>sbindir</code>, <code>mandir</code>,
+and <code>man8dir</code> on the <code>make</code> command line.</p>
 </li>
 </ol>
 

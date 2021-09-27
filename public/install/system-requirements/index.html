@@ -14,7 +14,7 @@ newer.  Check whether your network interface supports PTP with …">
 <meta property="og:description" content="System Requirements In order to run this software, you need Linux kernel version 3.0 or newer. Check whether your network interface supports PTP with the following command.
 ethtool -T eth0
 This command shows whether a MAC supports hardware or software time stamping. The following example output indicates support for hardware time stamping.
-The next example shows the case where the MAC only supports software time stamping. The ptp4lprogram requires either the -Scommand line argument or the time_stamping softwareconfiguration option when using such interfaces." />
+The next example shows the case where the MAC only supports software time stamping. The ptp4l program requires either the -S command line argument or the time_stamping software configuration option when using such interfaces." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/install/system-requirements/" /><meta property="article:section" content="install" />
 
@@ -82,7 +82,7 @@ if (!doNotTrack) {
 </header>
 <!-- /navigation -->
 
-<section class="section pt-0 pb-0">
+<section class="section pt-0 pb-auto">
   <div class="container">
             <h3 id="system-requirements">System Requirements</h3>
 <p>In order to run this software, you need Linux kernel version 3.0 or
@@ -95,16 +95,15 @@ hardware time stamping.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>The next example shows the case where the MAC only supports software
-time stamping.  The <!-- raw HTML omitted -->ptp4l<!-- raw HTML omitted --> program requires either the <!-- raw HTML omitted -->-S<!-- raw HTML omitted --> command
-line argument or the <!-- raw HTML omitted -->time_stamping software<!-- raw HTML omitted --> configuration option
+time stamping.  The <code>ptp4l</code> program requires either the <code>-S</code> command
+line argument or the <code>time_stamping software</code> configuration option
 when using such interfaces.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>Note the <!-- raw HTML omitted -->software-transmit (SOF_TIMESTAMPING_TX_SOFTWARE)<!-- raw HTML omitted -->
+<p>Note the <code>software-transmit (SOF_TIMESTAMPING_TX_SOFTWARE)</code>
 capability.  If this is lacking, then the MAC cannot be used at
 all.  However, adding this capability entails adding a single line
 of code to the device driver.</p>
-<p> </p>
 
           </div>
 </section>

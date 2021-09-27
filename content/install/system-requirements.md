@@ -33,8 +33,8 @@ Hardware Receive Filter Modes:
 </pre>
 
 The next example shows the case where the MAC only supports software
-time stamping.  The <tt>ptp4l</tt> program requires either the <tt>-S</tt> command
-line argument or the <tt>time_stamping software</tt> configuration option
+time stamping.  The `ptp4l` program requires either the `-S` command
+line argument or the `time_stamping software` configuration option
 when using such interfaces.
 
 <pre>
@@ -48,9 +48,7 @@ Hardware Transmit Timestamp Modes: none
 Hardware Receive Filter Modes: none
 </pre>
 
-Note the <tt>software-transmit (SOF_TIMESTAMPING_TX_SOFTWARE)</tt>
+Note the `software-transmit (SOF_TIMESTAMPING_TX_SOFTWARE)`
 capability.  If this is lacking, then the MAC cannot be used at
 all.  However, adding this capability entails adding a single line
 of code to the device driver.
-  
-&nbsp; 
