@@ -1,0 +1,7 @@
+enableRobotsTXT = true
+
+[services.googleAnalytics]
+id = "G-"
+
+# GCSE
+gcs_engine_id = ""

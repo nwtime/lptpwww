@@ -1,0 +1,140 @@
+baseURL = "https://www.linuxptp.org/"
+title = "Linux PTP Project"
+
+[params.plugins]
+
+  # CSS Plugins
+  [[params.plugins.css]]
+  link = "plugins/bootstrap-5.1.0-dist/bootstrap.min.css"
+
+  # JS Plugins
+  [[params.plugins.js]]
+  link = "plugins/jQuery/jquery.min.js"
+  [[params.plugins.js]]
+  link = "plugins/bootstrap-5.1.0-dist/bootstrap.min.js"
+  [[params.plugins.js]]
+
+enableRobotsTXT = true
+
+contentDir = "content/en"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
+pygmentsCodeFences = true
+pygmentsUseClasses = false
+pygmentsUseClassic = false
+pygmentsStyle = "tango"
+
+[blackfriday]
+plainIDAnchors = true
+hrefTargetBlank = true
+angledQuotes = false
+latexDashes = true
+
+[imaging]
+resampleFilter = "CatmullRom"
+quality = 75
+anchor = "smart"
+
+[languages]
+[languages.en]
+title = "Linux PTP Project"
+description = "Linux PTP Project"
+languageName ="English"
+weight = 1
+
+##### needed for raw html in md files #####
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+      style = "tango"
+
+# Everything below this are Site Params
+
+[params]
+copyright = "Network Time Foundation"
+github_repo = "https://github.com/richardcochran/linuxptp"
+
+#gcs_engine_id = "d72aa9b2712488cc3"
+algolia_docsearch = false
+offlineSearch = false
+
+[params.ui]
+sidebar_search_disable = false
+
+[params.links]
+[[params.links.user]]
+	name = "Mailing lists"
+	url = "https://lists.sourceforge.net/lists/listinfo/linuxptp-users"
+	icon = "bi-envelope"
+        desc = "Discussion and help from your fellow users"
+[[params.links.user]]
+	name ="LinkedIn"
+	url = "https://www.linkedin.com/groups/4683708/"
+	icon = "bi-linkedin"
+        desc = "Follow us on LinkedIn"
+
+[[menu.main]]
+    name = "About"
+    url = "/about"
+    weight = 20
+    hasChildren = true
+	  [[menu.main]] 
+	  parent = "About"
+	  name = "Features"
+	  URL = "/about/features"
+	  weight = 1
+	  [[menu.main]] 
+	  parent = "About"
+	  name = "Thanks"
+	  URL = "/about/thanks"
+	  weight = 2
+	  [[menu.main]] 
+	  parent = "About"
+	  name = "License"
+	  URL = "/about/license"
+	  weight = 3
+	  
+[[menu.main]]
+    name = "Install"
+    url = "/install"
+    weight = 30
+    hasChildren = true
+	  [[menu.main]] 
+	  parent = "Install"
+	  name = "System Requirements"
+	  URL = "/install/system-requirements"
+	  weight = 1
+	  [[menu.main]] 
+	  parent = "Install"
+	  name = "Getting the Code"
+	  URL = "/install/getting-the-code"
+	  weight = 2
+	  [[menu.main]] 
+	  parent = "Install"
+	  name = "Installation"
+	  URL = "/install/installation"
+	  weight = 3
+
+[[menu.main]]
+    name = "Getting Involved"
+    url = "/getting-involved"
+    weight = 40
+    hasChildren = true
+	  [[menu.main]] 
+	  parent = "Getting Involved"
+	  name = "Reporting Bugs"
+	  URL = "/getting-involved/reporting-bugs"
+	  weight = 1
+	  [[menu.main]] 
+	  parent = "Getting Involved"
+	  name = "Development"
+	  URL = "/getting-involved/development"
+	  weight = 2
+	  [[menu.main]] 
+	  parent = "Getting Involved"
+	  name = "Submitting Patches"
+	  URL = "/getting-involved/submitting-patches"
+	  weight = 3
