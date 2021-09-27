@@ -124,7 +124,7 @@ This command shows whether a MAC supports hardware or software time stamping. Th
 </header>
 <!-- /navigation -->
 
-<section class="section pt-0 pb-0">
+<section class="section pt-0 pb-auto">
   <div class="container">
             <h3 id="system-requirements">System Requirements</h3>
 <p>In order to run this software, you need Linux kernel version 3.0 or
@@ -152,8 +152,8 @@ Hardware Receive Filter Modes:
         all                   (HWTSTAMP_FILTER_ALL)
 </pre>
 <p>The next example shows the case where the MAC only supports software
-time stamping.  The <tt>ptp4l</tt> program requires either the <tt>-S</tt> command
-line argument or the <tt>time_stamping software</tt> configuration option
+time stamping.  The <code>ptp4l</code> program requires either the <code>-S</code> command
+line argument or the <code>time_stamping software</code> configuration option
 when using such interfaces.</p>
 <pre>
 Time stamping parameters for enp6s0:
@@ -165,11 +165,10 @@ PTP Hardware Clock: none
 Hardware Transmit Timestamp Modes: none
 Hardware Receive Filter Modes: none
 </pre>
-<p>Note the <tt>software-transmit (SOF_TIMESTAMPING_TX_SOFTWARE)</tt>
+<p>Note the <code>software-transmit (SOF_TIMESTAMPING_TX_SOFTWARE)</code>
 capability.  If this is lacking, then the MAC cannot be used at
 all.  However, adding this capability entails adding a single line
 of code to the device driver.</p>
-<p> </p>
 
           </div>
 </section>
