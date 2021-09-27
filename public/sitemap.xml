@@ -2,34 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/about/</loc>
+    <loc>https://www.linuxptp.org/about/</loc>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>https://www.linuxptp.org/categories/</loc>
   </url><url>
-    <loc>/getting-involved/development/</loc>
+    <loc>https://www.linuxptp.org/getting-involved/development/</loc>
   </url><url>
-    <loc>/about/features/</loc>
+    <loc>https://www.linuxptp.org/about/features/</loc>
   </url><url>
-    <loc>/install/getting-the-code/</loc>
+    <loc>https://www.linuxptp.org/install/getting-the-code/</loc>
   </url><url>
-    <loc>/getting-involved/</loc>
+    <loc>https://www.linuxptp.org/getting-involved/</loc>
   </url><url>
-    <loc>/install/installation/</loc>
+    <loc>https://www.linuxptp.org/install/installation/</loc>
   </url><url>
-    <loc>/install/</loc>
+    <loc>https://www.linuxptp.org/install/</loc>
   </url><url>
-    <loc>/about/license/</loc>
+    <loc>https://www.linuxptp.org/about/license/</loc>
   </url><url>
-    <loc>/getting-involved/reporting-bugs/</loc>
+    <loc>https://www.linuxptp.org/getting-involved/reporting-bugs/</loc>
   </url><url>
-    <loc>/getting-involved/submitting-patches/</loc>
+    <loc>https://www.linuxptp.org/getting-involved/submitting-patches/</loc>
   </url><url>
-    <loc>/install/system-requirements/</loc>
+    <loc>https://www.linuxptp.org/install/system-requirements/</loc>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>https://www.linuxptp.org/tags/</loc>
   </url><url>
-    <loc>/about/thanks/</loc>
+    <loc>https://www.linuxptp.org/about/thanks/</loc>
   </url><url>
-    <loc>/</loc>
+    <loc>https://www.linuxptp.org/</loc>
   </url>
 </urlset>

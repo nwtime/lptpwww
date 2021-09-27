@@ -14,44 +14,35 @@ newer.  Check whether your network interface supports PTP with …">
 <meta property="og:description" content="System Requirements In order to run this software, you need Linux kernel version 3.0 or newer. Check whether your network interface supports PTP with the following command.
 ethtool -T eth0
 This command shows whether a MAC supports hardware or software time stamping. The following example output indicates support for hardware time stamping.
-The next example shows the case where the MAC only supports software time stamping. The ptp4lprogram requires either the -Scommand line argument or the time_stamping softwareconfiguration option when using such interfaces." />
+Time stamping parameters for eth6:Capabilities:hardware-transmit (SOF_TIMESTAMPING_TX_HARDWARE)software-transmit (SOF_TIMESTAMPING_TX_SOFTWARE)hardware-receive (SOF_TIMESTAMPING_RX_HARDWARE)software-receive (SOF_TIMESTAMPING_RX_SOFTWARE)software-system-clock (SOF_TIMESTAMPING_SOFTWARE)hardware-raw-clock (SOF_TIMESTAMPING_RAW_HARDWARE)PTP Hardware Clock: 1Hardware Transmit Timestamp Modes:off (HWTSTAMP_TX_OFF)on (HWTSTAMP_TX_ON)Hardware Receive Filter Modes:none (HWTSTAMP_FILTER_NONE)all (HWTSTAMP_FILTER_ALL)The next example shows the case where the MAC only supports software time stamping." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/install/system-requirements/" /><meta property="article:section" content="install" />
+<meta property="og:url" content="https://www.linuxptp.org/install/system-requirements/" /><meta property="article:section" content="install" />
 
-
+<meta property="og:site_name" content="Linux PTP Project" />
 
 
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-', { 'anonymize_ip': false });
-}
-</script>
-
 
   <title>System Requirements</title>
 
   <!-- Mobile Responsive Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="Linux PTP Project">
   
   <meta name="generator" content="Hugo 0.83.1" />
 
   <!-- Plugins -->
   
+  <link rel="stylesheet" href="https://www.linuxptp.org/plugins/bootstrap-5.1.0-dist/bootstrap.min.css">
+  
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="/scss/nwtime.min.css" media="screen">
+  <link rel="stylesheet" href="https://www.linuxptp.org/scss/nwtime.min.css" media="screen">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="https://www.linuxptp.org/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://www.linuxptp.org/images/favicon.png " type="image/x-icon">
 </head>
 <body><!-- navigation -->
     
@@ -69,8 +60,59 @@ if (!doNotTrack) {
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto py-0">
           <li class="nav-item py-0">
-            <a class="text-logo nav-link py-0" href=""></a>
+            <a class="text-logo nav-link py-0" href="https://www.linuxptp.org/"></a>
           </li>
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              About
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.linuxptp.org/about/features">Features</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.linuxptp.org/about/thanks">Thanks</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.linuxptp.org/about/license">License</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Install
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.linuxptp.org/install/system-requirements">System Requirements</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.linuxptp.org/install/getting-the-code">Getting the Code</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.linuxptp.org/install/installation">Installation</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown py-0">
+            <a class="nav-link dropdown-toggle py-0" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Getting Involved
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.linuxptp.org/getting-involved/reporting-bugs">Reporting Bugs</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.linuxptp.org/getting-involved/development">Development</a>
+              
+              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="https://www.linuxptp.org/getting-involved/submitting-patches">Submitting Patches</a>
+              
+            </div>
+          </li>
+          
           
         </ul>
 
@@ -92,15 +134,38 @@ following command.</p>
 <p>This command shows whether a MAC supports hardware or software time
 stamping.  The following example output indicates support for
 hardware time stamping.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre>
+Time stamping parameters for eth6:
+Capabilities:
+        hardware-transmit     (SOF_TIMESTAMPING_TX_HARDWARE)
+        software-transmit     (SOF_TIMESTAMPING_TX_SOFTWARE)
+        hardware-receive      (SOF_TIMESTAMPING_RX_HARDWARE)
+        software-receive      (SOF_TIMESTAMPING_RX_SOFTWARE)
+        software-system-clock (SOF_TIMESTAMPING_SOFTWARE)
+        hardware-raw-clock    (SOF_TIMESTAMPING_RAW_HARDWARE)
+PTP Hardware Clock: 1
+Hardware Transmit Timestamp Modes:
+        off                   (HWTSTAMP_TX_OFF)
+        on                    (HWTSTAMP_TX_ON)
+Hardware Receive Filter Modes:
+        none                  (HWTSTAMP_FILTER_NONE)
+        all                   (HWTSTAMP_FILTER_ALL)
+</pre>
 <p>The next example shows the case where the MAC only supports software
-time stamping.  The <!-- raw HTML omitted -->ptp4l<!-- raw HTML omitted --> program requires either the <!-- raw HTML omitted -->-S<!-- raw HTML omitted --> command
-line argument or the <!-- raw HTML omitted -->time_stamping software<!-- raw HTML omitted --> configuration option
+time stamping.  The <tt>ptp4l</tt> program requires either the <tt>-S</tt> command
+line argument or the <tt>time_stamping software</tt> configuration option
 when using such interfaces.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>Note the <!-- raw HTML omitted -->software-transmit (SOF_TIMESTAMPING_TX_SOFTWARE)<!-- raw HTML omitted -->
+<pre>
+Time stamping parameters for enp6s0:
+Capabilities:
+        software-transmit     (SOF_TIMESTAMPING_TX_SOFTWARE)
+        software-receive      (SOF_TIMESTAMPING_RX_SOFTWARE)
+        software-system-clock (SOF_TIMESTAMPING_SOFTWARE)
+PTP Hardware Clock: none
+Hardware Transmit Timestamp Modes: none
+Hardware Receive Filter Modes: none
+</pre>
+<p>Note the <tt>software-transmit (SOF_TIMESTAMPING_TX_SOFTWARE)</tt>
 capability.  If this is lacking, then the MAC cannot be used at
 all.  However, adding this capability entails adding a single line
 of code to the device driver.</p>
@@ -112,6 +177,18 @@ of code to the device driver.</p>
 <footer class="navbar site-footer fixed-bottom pb-0 py-0">
 <div class="container-fluid" style="height: 3%;">
   <ul class="nav justify-content-center">
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Mailing lists" aria-label="Mailing lists">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://lists.sourceforge.net/lists/listinfo/linuxptp-users">
+        <i class="bi-envelope"></i>
+      </a>
+    </li>
+    
+    <li class="nav-item" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+      <a class="nav-link text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/groups/4683708/">
+        <i class="bi-linkedin"></i>
+      </a>
+    </li>
     
 	</ul>
 	<ul class="mx-auto pt-3">
