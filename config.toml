@@ -14,8 +14,6 @@ title = "Linux PTP Project"
   link = "plugins/bootstrap-5.1.0-dist/bootstrap.min.js"
   [[params.plugins.js]]
 
-enableRobotsTXT = true
-
 contentDir = "content/en"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
