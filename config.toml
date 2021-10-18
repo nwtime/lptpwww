@@ -1,4 +1,4 @@
-baseURL = "https://www.linuxptp.org/"
+baseURL = "https://linuxptp.nwtime.org/"
 title = "Linux PTP Project"
 
 [params.plugins]

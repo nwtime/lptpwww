@@ -1,7 +1,7 @@
 enableRobotsTXT = true
 
-[services.googleAnalytics]
-id = "G-"
+#[services.googleAnalytics]
+#id = "G-"
 
 # GCSE
-gcs_engine_id = ""
+#gcs_engine_id = ""
