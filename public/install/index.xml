@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-<<<<<<< HEAD
-    <title>Installs on </title>
-    <link>/install/</link>
-    <description>Recent content in Installs on </description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="/install/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Getting the Code</title>
-      <link>/install/getting-the-code/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/install/getting-the-code/</guid>
-=======
     <title>Installs on Linux PTP Project</title>
     <link>https://linuxptp.nwtime.org/install/</link>
     <description>Recent content in Installs on Linux PTP Project</description>
@@ -23,7 +11,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://linuxptp.nwtime.org/install/getting-the-code/</guid>
->>>>>>> 3fe3818d71500cced792b027cbf74ebc3e8b73ad
       <description>Getting the Code You can download the latest released version at Source Forge.
 The source code is managed using the git version control system. To get your own copy of the project sources, use the following command.
 git clone git://git.code.sf.net/p/linuxptp/code linuxptp
@@ -34,17 +21,10 @@ git clone http://git.code.sf.net/p/linuxptp/code linuxptp
     
     <item>
       <title>Installation</title>
-<<<<<<< HEAD
-      <link>/install/installation/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/install/installation/</guid>
-=======
       <link>https://linuxptp.nwtime.org/install/installation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://linuxptp.nwtime.org/install/installation/</guid>
->>>>>>> 3fe3818d71500cced792b027cbf74ebc3e8b73ad
       <description>Installation   Just type make.
   If you compiled your own kernel (and the headers are not installed into the system path), then you should set the KBUILD_OUTPUT environment variable.
   In order to install the programs and man pages into /usr/local, run the make install target. You can change the installation directories by setttings the variables prefix, sbindir, mandir, and man8dir on the make command line.</description>
@@ -52,21 +32,14 @@ git clone http://git.code.sf.net/p/linuxptp/code linuxptp
     
     <item>
       <title>System Requirements</title>
-<<<<<<< HEAD
-      <link>/install/system-requirements/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/install/system-requirements/</guid>
-=======
       <link>https://linuxptp.nwtime.org/install/system-requirements/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://linuxptp.nwtime.org/install/system-requirements/</guid>
->>>>>>> 3fe3818d71500cced792b027cbf74ebc3e8b73ad
       <description>System Requirements In order to run this software, you need Linux kernel version 3.0 or newer. Check whether your network interface supports PTP with the following command.
 ethtool -T eth0
 This command shows whether a MAC supports hardware or software time stamping. The following example output indicates support for hardware time stamping.
-The next example shows the case where the MAC only supports software time stamping. The ptp4l program requires either the -S command line argument or the time_stamping software configuration option when using such interfaces.</description>
+Time stamping parameters for eth6:Capabilities:hardware-transmit (SOF_TIMESTAMPING_TX_HARDWARE)software-transmit (SOF_TIMESTAMPING_TX_SOFTWARE)hardware-receive (SOF_TIMESTAMPING_RX_HARDWARE)software-receive (SOF_TIMESTAMPING_RX_SOFTWARE)software-system-clock (SOF_TIMESTAMPING_SOFTWARE)hardware-raw-clock (SOF_TIMESTAMPING_RAW_HARDWARE)PTP Hardware Clock: 1Hardware Transmit Timestamp Modes:off (HWTSTAMP_TX_OFF)on (HWTSTAMP_TX_ON)Hardware Receive Filter Modes:none (HWTSTAMP_FILTER_NONE)all (HWTSTAMP_FILTER_ALL)The next example shows the case where the MAC only supports software time stamping.</description>
     </item>
     
   </channel>

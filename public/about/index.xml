@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-<<<<<<< HEAD
-    <title>Abouts on </title>
-    <link>/about/</link>
-    <description>Recent content in Abouts on </description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="/about/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Features</title>
-      <link>/about/features/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/about/features/</guid>
-=======
     <title>Abouts on Linux PTP Project</title>
     <link>https://linuxptp.nwtime.org/about/</link>
     <description>Recent content in Abouts on Linux PTP Project</description>
@@ -23,7 +11,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://linuxptp.nwtime.org/about/features/</guid>
->>>>>>> 3fe3818d71500cced792b027cbf74ebc3e8b73ad
       <description>Features   Supports hardware and software time stamping via the Linux SO_TIMESTAMPING socket option.
   Supports the Linux PTP Hardware Clock (PHC) subsystem by using the clock_gettime family of calls, including the clock_adjtimex system call.
   Implements Boundary Clock (BC), Ordinary Clock (OC) and Transparent Clock (TC).
@@ -33,34 +20,19 @@
     
     <item>
       <title>License</title>
-<<<<<<< HEAD
-      <link>/about/license/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/about/license/</guid>
-      <description>License </description>
-=======
       <link>https://linuxptp.nwtime.org/about/license/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://linuxptp.nwtime.org/about/license/</guid>
       <description>License The software is copyrighted by the authors and is licensed under theGNU General Public License. See the file, COPYING,for details of the license terms.</description>
->>>>>>> 3fe3818d71500cced792b027cbf74ebc3e8b73ad
     </item>
     
     <item>
       <title>Thanks</title>
-<<<<<<< HEAD
-      <link>/about/thanks/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/about/thanks/</guid>
-=======
       <link>https://linuxptp.nwtime.org/about/thanks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://linuxptp.nwtime.org/about/thanks/</guid>
->>>>>>> 3fe3818d71500cced792b027cbf74ebc3e8b73ad
       <description>Thanks Thanks to AudioScience Inc. for sponsoring the IEEE 8021.AS support.
 Thanks to Exablaze for donating an ExaNIC X10 (now known as Cisco Nexus SmartNIC).
 Thanks to Intel Corporation for donating four Intel Ethernet NICs: the 82574, 82580, 82599, and the i210.

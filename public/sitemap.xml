@@ -2,37 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-<<<<<<< HEAD
-    <loc>/about/</loc>
-  </url><url>
-    <loc>/categories/</loc>
-  </url><url>
-    <loc>/getting-involved/development/</loc>
-  </url><url>
-    <loc>/about/features/</loc>
-  </url><url>
-    <loc>/install/getting-the-code/</loc>
-  </url><url>
-    <loc>/getting-involved/</loc>
-  </url><url>
-    <loc>/install/installation/</loc>
-  </url><url>
-    <loc>/install/</loc>
-  </url><url>
-    <loc>/about/license/</loc>
-  </url><url>
-    <loc>/getting-involved/reporting-bugs/</loc>
-  </url><url>
-    <loc>/getting-involved/submitting-patches/</loc>
-  </url><url>
-    <loc>/install/system-requirements/</loc>
-  </url><url>
-    <loc>/tags/</loc>
-  </url><url>
-    <loc>/about/thanks/</loc>
-  </url><url>
-    <loc>/</loc>
-=======
     <loc>https://linuxptp.nwtime.org/about/</loc>
   </url><url>
     <loc>https://linuxptp.nwtime.org/categories/</loc>
@@ -62,6 +31,5 @@
     <loc>https://linuxptp.nwtime.org/about/thanks/</loc>
   </url><url>
     <loc>https://linuxptp.nwtime.org/</loc>
->>>>>>> 3fe3818d71500cced792b027cbf74ebc3e8b73ad
   </url>
 </urlset>
