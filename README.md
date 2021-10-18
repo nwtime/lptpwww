@@ -26,7 +26,7 @@ npm install -D postcss
 Grab the [lptpwww repository](https://github.com/nwtime/lptpwww/):
 
 ```
-git clone https://github.com/nwtime/lptpwww
+git clone https://bitbucket.nwtime.org/scm/websites/lptpwww.git
 
 ```
 
