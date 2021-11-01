@@ -14,6 +14,8 @@ title = "Linux PTP Project"
   link = "plugins/bootstrap-5.1.0-dist/bootstrap.min.js"
   [[params.plugins.js]]
 
+enableRobotsTXT = false
+
 contentDir = "content/en"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
@@ -53,11 +55,8 @@ weight = 1
 
 [params]
 copyright = "Network Time Foundation"
+logo2 = "images/logo.png"
 github_repo = "https://github.com/richardcochran/linuxptp"
-
-#gcs_engine_id = "d72aa9b2712488cc3"
-algolia_docsearch = false
-offlineSearch = false
 
 [params.ui]
 sidebar_search_disable = false
