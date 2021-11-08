@@ -36,6 +36,7 @@ anchor = "smart"
 
 [languages]
 [languages.en]
+contentDir = "content/en"
 title = "Linux PTP Project"
 description = "Linux PTP Project"
 languageName ="English"
