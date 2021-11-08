@@ -8,8 +8,8 @@ This software is an implementation of the Precision Time Protocol (PTP) accordin
 provide a robust implementation of the standard and to use the most relevant and modern Application Programming Interfaces (API) offered by the Linux
 kernel. Supporting legacy APIs and other platforms is not a goal.
 
-Network Time Foundation provides support for the NTP Project and hosts the [PTP Consortium](https://www.nwtime.org/membership/join-the-consortium/). 
-Learn more about the Foundation's work at https://www.nwtime.org.</p>
+Network Time Foundation (NTF) is the home of the Linux PTP Project and hosts the [PTP Consortium](https://www.nwtime.org/membership/join-the-consortium/). 
+Learn more about the NTF's work at https://www.nwtime.org.</p>
 <p><br />
 
 
