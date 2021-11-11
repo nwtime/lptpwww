@@ -9,7 +9,7 @@ provide a robust implementation of the standard and to use the most relevant and
 kernel. Supporting legacy APIs and other platforms is not a goal.
 
 Network Time Foundation (NTF) is the home of the Linux PTP Project and hosts the [PTP Consortium](https://www.nwtime.org/membership/join-the-consortium/). 
-Learn more about the NTF's work at https://www.nwtime.org.</p>
+Learn more about NTF's work at https://www.nwtime.org.</p>
 <p><br />
 
 
