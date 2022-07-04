@@ -1,18 +1,12 @@
 baseURL = "https://linuxptp.nwtime.org/"
 title = "Linux PTP Project"
+enableRobotsTXT = true
 
 [params.plugins]
 
-  # CSS Plugins
-  [[params.plugins.css]]
-  link = "plugins/bootstrap-5.1.0-dist/bootstrap.min.css"
-
-  # JS Plugins
+# JS Plugins
   [[params.plugins.js]]
-  link = "plugins/jQuery/jquery.min.js"
-  [[params.plugins.js]]
-  link = "plugins/bootstrap-5.1.0-dist/bootstrap.min.js"
-  [[params.plugins.js]]
+  link = "plugins/bootstrap-5.1.3/js/bootstrap.bundle.min.js"
 
 contentDir = "content/en"
 defaultContentLanguage = "en"
@@ -36,9 +30,7 @@ anchor = "smart"
 
 [languages]
 [languages.en]
-contentDir = "content/en"
 title = "Linux PTP Project"
-description = "Linux PTP Project"
 languageName ="English"
 weight = 1
 
@@ -54,86 +46,33 @@ weight = 1
 
 [params]
 copyright = "Network Time Foundation"
+logo2 = "images/logo.png"
 github_repo = "https://github.com/richardcochran/linuxptp"
-
-#gcs_engine_id = "d72aa9b2712488cc3"
-algolia_docsearch = false
-offlineSearch = false
-
-[params.ui]
-sidebar_search_disable = false
+description = "A Linux implementation of the Precision Time Protocol (PTP) according to IEEE standard 1588."
 
 [params.links]
 [[params.links.user]]
 	name = "Mailing lists"
 	url = "https://lists.sourceforge.net/lists/listinfo/linuxptp-users"
-	icon = "bi-envelope"
+	icon = "/images/icons/envelope.svg"
         desc = "Discussion and help from your fellow users"
 [[params.links.user]]
 	name ="LinkedIn"
 	url = "https://www.linkedin.com/groups/4683708/"
-	icon = "bi-linkedin"
+	icon = "/images/icons/linkedin.svg"
         desc = "Follow us on LinkedIn"
 
 [[menu.main]]
     name = "About"
     url = "/about"
     weight = 20
-    hasChildren = true
-	  [[menu.main]] 
-	  parent = "About"
-	  name = "Features"
-	  URL = "/about/features"
-	  weight = 1
-	  [[menu.main]] 
-	  parent = "About"
-	  name = "Thanks"
-	  URL = "/about/thanks"
-	  weight = 2
-	  [[menu.main]] 
-	  parent = "About"
-	  name = "License"
-	  URL = "/about/license"
-	  weight = 3
-	  
+ 
 [[menu.main]]
     name = "Install"
     url = "/install"
     weight = 30
-    hasChildren = true
-	  [[menu.main]] 
-	  parent = "Install"
-	  name = "System Requirements"
-	  URL = "/install/system-requirements"
-	  weight = 1
-	  [[menu.main]] 
-	  parent = "Install"
-	  name = "Getting the Code"
-	  URL = "/install/getting-the-code"
-	  weight = 2
-	  [[menu.main]] 
-	  parent = "Install"
-	  name = "Installation"
-	  URL = "/install/installation"
-	  weight = 3
 
 [[menu.main]]
     name = "Getting Involved"
     url = "/getting-involved"
     weight = 40
-    hasChildren = true
-	  [[menu.main]] 
-	  parent = "Getting Involved"
-	  name = "Reporting Bugs"
-	  URL = "/getting-involved/reporting-bugs"
-	  weight = 1
-	  [[menu.main]] 
-	  parent = "Getting Involved"
-	  name = "Development"
-	  URL = "/getting-involved/development"
-	  weight = 2
-	  [[menu.main]] 
-	  parent = "Getting Involved"
-	  name = "Submitting Patches"
-	  URL = "/getting-involved/submitting-patches"
-	  weight = 3
