@@ -1,6 +1,6 @@
 ---
 title: "Submitting Patches"
-type: archives
+description: "Instructions for submitting a patch to the Linux PTP Project."
 ---
 
 ### Submitting Patches

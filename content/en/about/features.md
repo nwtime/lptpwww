@@ -1,5 +1,6 @@
 ---
 title: "Features"
+description: "Listing of features supported by Linux PTP software."
 ---
 
 ### Features

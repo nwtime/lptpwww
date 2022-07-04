@@ -1,5 +1,6 @@
 ---
 title: "Thanks"
+description: "Thank you to the Linux PTP Project's sponsors and hardware donors."
 ---
 
 ### Thanks

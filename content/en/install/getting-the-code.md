@@ -1,5 +1,6 @@
 ---
 title: "Getting the Code"
+description: "You can download the latest release of Linux PTP from Source Forge."
 ---
 
 ### Getting the Code
