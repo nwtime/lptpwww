@@ -1,5 +1,6 @@
 ---
 title: Documentation
+description: "Example configuration profiles and listing of man pages for Linux PTP."
 ---
 
 ### Documentation
@@ -27,11 +28,11 @@ synchronized to each other in order to form a Transparent Clock.
 
 #### Man Pages
 
-* [hwstamp_ctl(8)](https://github.com/richardcochran/linuxptp/blob/master/hwstamp_ctl.8): 
-* [nsm(8)](https://github.com/richardcochran/linuxptp/blob/master/nsm.8): 
-* [phc2sys(8)](https://github.com/richardcochran/linuxptp/blob/master/phc2sys.8): 
-* [phc_ctl(8)](https://github.com/richardcochran/linuxptp/blob/master/phc_ctl.8): 
-* [pmc(8)](https://github.com/richardcochran/linuxptp/blob/master/pmc.8): 
-* [ptp4l(8)](https://github.com/richardcochran/linuxptp/blob/master/ptp4l.8): 
-* [timemaster(8)](https://github.com/richardcochran/linuxptp/blob/master/timemaster.8): 
-* [ts2phc(8)](https://github.com/richardcochran/linuxptp/blob/master/ts2phc.8): 
+* [hwstamp_ctl(8)](/documentation/hwstamp_ctl/): set time stamping policy at the driver level
+* [nsm(8)](/documentation/nsm/): NetSync Monitor client
+* [phc2sys(8)](/documentation/phc2sys/): synchronize two or more clocks
+* [phc_ctl(8)](https://github.com/richardcochran/linuxptp/blob/master/phc_ctl.8): directly control PHC device clock
+* [pmc(8)](https://github.com/richardcochran/linuxptp/blob/master/pmc.8): PTP management client
+* [ptp4l(8)](https://github.com/richardcochran/linuxptp/blob/master/ptp4l.8): PTP Boundary/Ordinary/Transparent Clock
+* [timemaster(8)](https://github.com/richardcochran/linuxptp/blob/master/timemaster.8): run NTP with PTP as reference clocks
+* [ts2phc(8)](https://github.com/richardcochran/linuxptp/blob/master/ts2phc.8): Synchronizes one or more PTP Hardware Clocks using external time stamps.

@@ -1,6 +1,6 @@
 ---
 title: "Default Configuration Parameters"
-description: ""
+description: "Tables summarizing the default configuration values for Linux PTP."
 ---
 
 ### Default Configuration Parameters
