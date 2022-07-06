@@ -65,15 +65,20 @@ description = "A Linux implementation of the Precision Time Protocol (PTP) accor
 
 [[menu.main]]
     name = "About"
-    url = "/about"
+    url = "/about/"
     weight = 20
  
 [[menu.main]]
     name = "Install"
-    url = "/install"
+    url = "/install/"
     weight = 30
 
 [[menu.main]]
     name = "Getting Involved"
-    url = "/getting-involved"
+    url = "/getting-involved/"
     weight = 40
+
+[[menu.main]]
+    name = "Documentation"
+    url = "/documentation/"
+    weight = 50

@@ -138,7 +138,7 @@ by  name. The default is `CLOCK_REALTIME` (the system clock). Not compatible wit
 
 #### LONG OPTIONS
 
-Each and every configuration file option (see below in section [FILE\ OPTIONS](#file-options)) may also appear as a "long" style command line argument.  For example, the `transportSpecific` option may be set using either of these two forms:
+Each and every configuration file option (see below in section [FILE OPTIONS](#file-options)) may also appear as a "long" style command line argument.  For example, the `transportSpecific` option may be set using either of these two forms:
 
 <code>-\-transportSpecific 1</code>
 
@@ -198,144 +198,67 @@ The maximum logging level of messages which should be printed. The default is 6 
 
 : Specifies the integral constant of the PI controller. Same as option `-I` (see above).
 
-.TP
-.B step_threshold
-Specifies the step threshold of the servo. It is the maximum offset that
-the servo corrects by changing the clock frequency instead of stepping
-the clock. The clock is stepped on start regardless of the option if the
-offset is larger than 20 microseconds (unless the -F option is used).
-It's  specified  in seconds. The value of 0.0 disables stepping after
-the start. The default is 0.0.
-Same as option
-.B \-S
-(see above).
+<code>**step_threshold**</code>
 
-.TP
-.B first_step_threshold
-Specify the step threshold applied only on the first update. It is the
-maximum offset that is corrected by adjusting clock. It's specified in
-seconds. The value of 0.0 disables stepping on start. The default is
-0.00002 (20 microseconds).
-Same as option
-.B \-F
-(see above).
+: Specifies the step threshold of the servo. It is the maximum offset that the servo corrects by changing the clock frequency instead of stepping the clock. The clock is stepped on start regardless of the option if the offset is larger than 20 microseconds (unless the `-F` option is used). It's  specified  in seconds. The value of 0.0 disables stepping after the start. The default is 0.0. Same as option `-S` (see above).
 
-.TP
-.B ntpshm_segment
-The number of the SHM segment used by ntpshm servo.  The default is 0.
-Same as option
-.B \-M
-(see above).
+<code>**first_step_threshold**</code>
 
-.TP
-.B uds_address
-Specifies the address of the server's UNIX domain socket. The default
-is /var/run/ptp4
-Same as option
-.B \-z
-(see above).
+: Specify the step threshold applied only on the first update. It is the maximum offset that is corrected by adjusting clock. It's specified in seconds. The value of 0.0 disables stepping on start. The default is 0.00002 (20 microseconds). Same as option `-F` (see above).
 
-.SH TIME SCALE USAGE
+<code>**ntpshm_segment**</code>
 
-.B Ptp4l
-uses either PTP time scale or UTC (Coordinated Universal Time) time
-scale.  PTP time scale is continuous and shifted against UTC by a few tens of
-seconds as PTP time scale does not apply leap seconds.
+: The number of the SHM segment used by `ntpshm` servo.  The default is 0. Same as option `-M` (see above).
 
-In hardware time stamping mode,
-.B ptp4l
-announces use of PTP time scale and PHC
-is used for the stamps.  That means PHC must follow PTP time scale while system
-clock follows UTC.  Time offset between these two is maintained by
-.BR phc2sys .
+<code>**uds_address**</code>
 
-.B Phc2sys
-acquires the offset value either by reading it from ptp4l when
-.B \-a
-or
-.B \-w
-is in effect or from command line when
-.B \-O
-is supplied.  Failure to maintain the correct offset can result in the
-local system clock being offset some whole number of seconds from the
-domain server's clock when in client mode, or incorect PTP time
-announced to the network in case the host is the domain server.
+: Specifies the address of the server's UNIX domain socket. The default is `/var/run/ptp4`. Same as option `-z` (see above).
 
-.SH EXAMPLES
+#### TIME SCALE USAGE
 
-Synchronize time automatically according to the current
-.B ptp4l
-state, synchronizing the system clock to the remote server.
+`ptp4l` uses either PTP time scale or UTC (Coordinated Universal Time) time scale.  PTP time scale is continuous and shifted against UTC by a few tens of seconds as PTP time scale does not apply leap seconds.
 
-.RS
-\f(CWphc2sys \-a \-r\fP
-.RE
+In hardware time stamping mode, `ptp4l` announces use of PTP time scale and PHC is used for the stamps.  That means PHC must follow PTP time scale while system clock follows UTC.  Time offset between these two is maintained by `phc2sys`.
 
-Same as above, but when the host becomes the domain server, synchronize time
-in the domain to its system clock.
+`phc2sys` acquires the offset value either by reading it from `ptp4l` when `-a` or `-w` is in effect or from command line when `-O` is supplied.  Failure to maintain the correct offset can result in the local system clock being offset some whole number of seconds from the domain server's clock when in client mode, or incorect PTP time announced to the network in case the host is the domain server.
 
-.RS
-\f(CWphc2sys \-a \-rr\fP
-.RE
+#### EXAMPLES
+
+Synchronize time automatically according to the current `ptp4l` state, synchronizing the system clock to the remote server.
+
+`phc2sys -a -r`
+
+Same as above, but when the host becomes the domain server, synchronize time in the domain to its system clock.
+
+`phc2sys -a -rr`
 
 Same as above, in an IEEE 802.1AS domain.
 
-.RS
-\f(CWphc2sys \-a \-rr --transportSpecific=1\fP
-.RE
+`phc2sys -a -rr --transportSpecific=1`
 
-The host is a domain server, PTP clock is synchronized to system clock and the
-time offset is obtained from
-.BR ptp4l .
-.B Phc2sys
-waits for
-.B ptp4l
-to get at least one port in server or client mode before starting the
-synchronization.
+The host is a domain server, PTP clock is synchronized to system clock and the time offset is obtained from `ptp4l`. `phc2sys` waits for `ptp4l` to get at least one port in server or client mode before starting the synchronization.
 
-.RS
-\f(CWphc2sys \-c /dev/ptp0 \-s CLOCK_REALTIME \-w\fP
-.RE
+`phc2sys -c /dev/ptp0 -s CLOCK_REALTIME -w`
 
-Same as above, time offset is provided on command line and
-.B phc2sys
-does not wait for
-.BR ptp4l .
+Same as above, time offset is provided on command line and `phc2sys` does not wait for `ptp4l`.
 
-.RS
-\f(CWphc2sys \-c /dev/ptp0 \-s CLOCK_REALTIME \-O 35\fP
-.RE
+`phc2sys -c /dev/ptp0 -s CLOCK_REALTIME -O 35`
 
-The host is in client mode, system clock is synchronized from PTP clock,
-.B phc2sys
-waits for
-.B ptp4l
-and the offset is set automatically.
+The host is in client mode, system clock is synchronized from PTP clock, `phc2sys`
+waits for `ptp4l` and the offset is set automatically.
 
-.RS
-\f(CWphc2sys \-s /dev/ptp0 \-w\fP
-.RE
+`phc2sys -s /dev/ptp0 -w`
 
-Same as above, PTP clock id is read from the network interface, the offset is
-provided on command line
-.B phc2sys
-does not wait.
+Same as above, PTP clock id is read from the network interface, the offset is provided on command line, `phc2sys` does not wait.
 
-.RS
-\f(CWphc2sys \-s eth0 \-O \-35\fP
-.RE
+`phc2sys -s eth0 -O -35`
 
-.SH WARNING
+#### WARNING
 
-Be cautious when the same configuration file is used for both ptp4l and phc2sys.
-Keep in mind, that values specified in the configuration file take precedence
-over their default values. If a certain option, which is common to ptp4l and
-phc2sys, is specified to a non-default value in the configuration file
-(p.e., for ptp4l), then this non-default value applies also for phc2sys. This
-might be not what is expected.
+Be cautious when the same configuration file is used for both `ptp4l` and `phc2sys`. Keep in mind, that values specified in the configuration file take precedence over their default values. If a certain option, which is common to `ptp4l` and `phc2sys`, is specified to a non-default value in the configuration file (i.e., for `ptp4l`), then this non-default value applies also for `phc2sys`. This might be not what is expected.
 
-It is recommended to use seperate configuration files for ptp4l and
-phc2sys in order to avoid any unexpected behavior.
+It is recommended to use seperate configuration files for `ptp4l` and `phc2sys` in order to avoid any unexpected behavior.
 
-.SH SEE ALSO
-.BR ptp4l (8)
+#### SEE ALSO
+
+[ptp4l(8)](/documentation/ptp4l)

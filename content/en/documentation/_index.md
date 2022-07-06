@@ -31,8 +31,8 @@ synchronized to each other in order to form a Transparent Clock.
 * [hwstamp_ctl(8)](/documentation/hwstamp_ctl/): set time stamping policy at the driver level
 * [nsm(8)](/documentation/nsm/): NetSync Monitor client
 * [phc2sys(8)](/documentation/phc2sys/): synchronize two or more clocks
-* [phc_ctl(8)](https://github.com/richardcochran/linuxptp/blob/master/phc_ctl.8): directly control PHC device clock
-* [pmc(8)](https://github.com/richardcochran/linuxptp/blob/master/pmc.8): PTP management client
-* [ptp4l(8)](https://github.com/richardcochran/linuxptp/blob/master/ptp4l.8): PTP Boundary/Ordinary/Transparent Clock
-* [timemaster(8)](https://github.com/richardcochran/linuxptp/blob/master/timemaster.8): run NTP with PTP as reference clocks
-* [ts2phc(8)](https://github.com/richardcochran/linuxptp/blob/master/ts2phc.8): Synchronizes one or more PTP Hardware Clocks using external time stamps.
+* [phc_ctl(8)](/documentation/phc_ctl/): directly control PHC device clock
+* [pmc(8)](/documentation/pmc/): PTP management client
+* [ptp4l(8)](/documentation/ptp4l/): PTP Boundary/Ordinary/Transparent Clock
+* [timemaster(8)](/documentation/timemaster/): run NTP with PTP as reference clocks
+* [ts2phc(8)](/documentation/ts2phc/): Synchronizes one or more PTP Hardware Clocks using external time stamps
