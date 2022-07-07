@@ -234,7 +234,7 @@ Select the network transport. Possible values are `UDPv4`, `UDPv6`, and `L2`. Th
 
 <code>**G.8275.portDS.localPriority**</code>
 
-: The Telecom Profiles (ITU-T [G.8275.1](https://github.com/richardcochran/linuxptp/blob/master/configs/G.8275.1.cfg) and [G.8275.2](https://github.com/richardcochran/linuxptp/blob/master/configs/G.8275.2.cfg)) specify an alternate Best Master Clock Algorithm (BMCA) with a unique data set comparison algorithm.  The value of this option is associated with Announce messages arriving on a particular port and is used as a tie breaker whenever `clockClass`, `clockAccuracy`, `offsetScaledLogVariance`, and `priority2` are equal. This option is only used when `dataset_comparison` is set to `G.8275.x`. The default value is 128.
+: The Telecom Profiles (ITU-T [G.8275.1](/documentation/configs/g-8275-1/) and [G.8275.2](/documentation/configs/g-8275-2/)) specify an alternate Best Master Clock Algorithm (BMCA) with a unique data set comparison algorithm.  The value of this option is associated with Announce messages arriving on a particular port and is used as a tie breaker whenever `clockClass`, `clockAccuracy`, `offsetScaledLogVariance`, and `priority2` are equal. This option is only used when `dataset_comparison` is set to `G.8275.x`. The default value is 128.
 
 **Warning:** the BMCA is guaranteed to produce a spanning tree (that is, a timing network without loops) only when using the default values of `G.8275.defaultDS.localPriority` and `G.8275.portDS.localPriority`. Careful network engineering is needed when using non-default values.
 
@@ -324,7 +324,7 @@ shaping. This option is only available with the IEEE 802.3 transport (the `-2` o
 
 <code>**G.8275.defaultDS.localPriority**</code>
 
-: The Telecom Profiles (ITU-T [G.8275.1](https://github.com/richardcochran/linuxptp/blob/master/configs/G.8275.1.cfg) and [G.8275.2](https://github.com/richardcochran/linuxptp/blob/master/configs/G.8275.2.cfg)) specify an alternate Best Master Clock Algorithm (BMCA) with a unique data set comparison algorithm.  The value of this option is associated with the local clock and is used as a tie breaker whenever `clockClass`, `clockAccuracy`, `offsetScaledLogVariance`, and `priority2` are equal. This option is only used when `dataset_comparison` is set to `G.8275.x`. The default value is 128.
+: The Telecom Profiles (ITU-T [G.8275.1](/documentation/configs/g-8275-1) and [G.8275.2](/documentation/configs/g-8275-2)) specify an alternate Best Master Clock Algorithm (BMCA) with a unique data set comparison algorithm.  The value of this option is associated with the local clock and is used as a tie breaker whenever `clockClass`, `clockAccuracy`, `offsetScaledLogVariance`, and `priority2` are equal. This option is only used when `dataset_comparison` is set to `G.8275.x`. The default value is 128.
 
 **Warning:** the BMCA is guaranteed to produce a spanning tree (that is, a timing network without loops) only when using the default values of `G.8275.defaultDS.localPriority` and `G.8275.portDS.localPriority`. Careful network engineering is needed when using non-default values.
 

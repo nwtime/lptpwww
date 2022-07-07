@@ -5,7 +5,7 @@ description: "Tables summarizing the default configuration values for Linux PTP.
 
 ### Default Configuration Parameters
 
-The following tables summarize the default configuration values found in [default.cfg](https://github.com/richardcochran/linuxptp/blob/master/configs/default.cfg). Refer to [ptp4l(8)](https://github.com/richardcochran/linuxptp/blob/45f23047d22a3ab9ca0786a34d604405780cbb89/ptp4l.8) for a complete listing of all configuration options.
+The following tables summarize the default configuration values found in [default.cfg](/documentation/configs/default-cfg/). Refer to [ptp4l(8)](/documentation/ptp4l/) for a complete listing of all configuration options.
 
 * * *
 
