@@ -6,7 +6,7 @@ date: 2018-04-30
 
 ### Unicast Master
 
-Unicast Master example configuration containing those attributes which differ from the [default configuration](/documentation/configs/default/).  Refer to [ptp4l(8)](/documentation/ptp4l/) for the complete list of available options.
+Unicast Master example configuration containing those attributes which differ from the [default configuration](/documentation/configs/default-cfg/).  Refer to [ptp4l(8)](/documentation/ptp4l/) for the complete list of available options.
 
 <pre>
 [global]

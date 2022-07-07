@@ -6,7 +6,7 @@ date: 2018-05-25
 
 ### Peer to Peer Transparent Clock
 
-Peer to Peer Transparent Clock example configuration containing those attributes which differ from the [default configuration](/documentation/configs/default/). Refer to [ptp4l(8)](/documentation/ptp4l/) for the complete list of available options.
+Peer to Peer Transparent Clock example configuration containing those attributes which differ from the [default configuration](/documentation/configs/default-cfg/). Refer to [ptp4l(8)](/documentation/ptp4l/) for the complete list of available options.
 
 <pre>
 [global]

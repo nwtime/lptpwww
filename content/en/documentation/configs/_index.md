@@ -38,4 +38,4 @@ synchronized to each other in order to form a Transparent Clock.
 * [UNICAST-SLAVE/](/documentation/configs/unicast-slave/)
 
 * [gPTP/](/documentation/configs/gptp/): 802.1AS for timing and synchronization of time-sensitive applications in bridged Local Area Networks. 
-* [snmpd.conf](/documentation/configs/snmpd-conf)
+* [snmpd.conf](/documentation/configs/snmpd-conf/)

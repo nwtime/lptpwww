@@ -6,7 +6,7 @@ date: 2021-01-18
 
 ### Automotive Master
 
-Automotive profile example configuration for master containing those attributes which differ from the [default configuration](/documentation/configs/default/). Refer to [ptp4l(8)](/documentation/ptp4l/) for the complete list of available options.
+Automotive profile example configuration for master containing those attributes which differ from the [default configuration](/documentation/configs/default-cfg/). Refer to [ptp4l(8)](/documentation/ptp4l/) for the complete list of available options.
 
 <pre>
 [global]
