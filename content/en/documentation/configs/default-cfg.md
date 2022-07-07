@@ -6,7 +6,7 @@ date: 2018-05-25
 
 ### Default Configuration
 
-The settings in this file (`default.cfg`) are assumed unless overridden by a custom configuration. Examples of custom configurations are listed in [Example Configurations](/documentation/configs).
+The settings in this file (`default.cfg`) are assumed unless overridden by a custom configuration. Examples of custom configurations are listed in [Example Configurations](/documentation/configs/).
 
 Refer to [ptp4l(8)](/documentation/ptp4l/) for the definition and possible values for each configuration option.
 

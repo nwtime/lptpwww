@@ -40,7 +40,7 @@ date: 2020-06-15
 
 #### COMMANDS
 
-`phc_ctl` is controlled by passing commands which take either an optional or required parameter. The commands (outlined below) will control aspects of the PHC clock device. These commands may be useful for inspecting or debugging the PHC driver, but may have adverse side effects on running instances of [ptp4l(8)](/documentation/ptp4l) or [phc2sys(8)](/documentation/phc2sys).
+`phc_ctl` is controlled by passing commands which take either an optional or required parameter. The commands (outlined below) will control aspects of the PHC clock device. These commands may be useful for inspecting or debugging the PHC driver, but may have adverse side effects on running instances of [ptp4l(8)](/documentation/ptp4l/) or [phc2sys(8)](/documentation/phc2sys/).
 
 <code>**set _seconds_**</code>
 

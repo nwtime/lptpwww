@@ -264,7 +264,7 @@ Select the network transport. Possible values are `UDPv4`, `UDPv6`, and `L2`. Th
 
 <code>**boundary_clock_jbod**</code>
 
-: When running as a boundary clock (that is, when more than one network interface is configured), `ptp4l` performs a sanity check to make sure that all of the ports share the same hardware clock device. This option allows `ptp4l` to work as a boundary clock using "just a bunch of devices" that are not synchronized to each other. For this mode, the collection of clocks must be synchronized by an external program, for example [phc2sys(8)](/documentation/phc2sys) in `automatic` mode. The default is 0 (disabled).
+: When running as a boundary clock (that is, when more than one network interface is configured), `ptp4l` performs a sanity check to make sure that all of the ports share the same hardware clock device. This option allows `ptp4l` to work as a boundary clock using "just a bunch of devices" that are not synchronized to each other. For this mode, the collection of clocks must be synchronized by an external program, for example [phc2sys(8)](/documentation/phc2sys/) in `automatic` mode. The default is 0 (disabled).
 
 <code>**phc_index**</code>
 
@@ -324,7 +324,7 @@ shaping. This option is only available with the IEEE 802.3 transport (the `-2` o
 
 <code>**G.8275.defaultDS.localPriority**</code>
 
-: The Telecom Profiles (ITU-T [G.8275.1](/documentation/configs/g-8275-1) and [G.8275.2](/documentation/configs/g-8275-2)) specify an alternate Best Master Clock Algorithm (BMCA) with a unique data set comparison algorithm.  The value of this option is associated with the local clock and is used as a tie breaker whenever `clockClass`, `clockAccuracy`, `offsetScaledLogVariance`, and `priority2` are equal. This option is only used when `dataset_comparison` is set to `G.8275.x`. The default value is 128.
+: The Telecom Profiles (ITU-T [G.8275.1](/documentation/configs/g-8275-1/) and [G.8275.2](/documentation/configs/g-8275-2/)) specify an alternate Best Master Clock Algorithm (BMCA) with a unique data set comparison algorithm.  The value of this option is associated with the local clock and is used as a tie breaker whenever `clockClass`, `clockAccuracy`, `offsetScaledLogVariance`, and `priority2` are equal. This option is only used when `dataset_comparison` is set to `G.8275.x`. The default value is 128.
 
 **Warning:** the BMCA is guaranteed to produce a spanning tree (that is, a timing network without loops) only when using the default values of `G.8275.defaultDS.localPriority` and `G.8275.portDS.localPriority`. Careful network engineering is needed when using non-default values.
 

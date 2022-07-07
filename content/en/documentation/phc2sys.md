@@ -14,7 +14,7 @@ date: 2021-01-08
 
 #### DESCRIPTION
 
-`phc2sys` is a program which synchronizes two or more clocks in the system. Typically, it is used to synchronize the system clock to a PTP hardware clock (PHC), which itself is synchronized by the [ptp4l(8)](/documentation/ptp4l) program.
+`phc2sys` is a program which synchronizes two or more clocks in the system. Typically, it is used to synchronize the system clock to a PTP hardware clock (PHC), which itself is synchronized by the [ptp4l(8)](/documentation/ptp4l/) program.
 
 With the `-a` option, the clocks to synchronize are fetched from the running `ptp4l` daemon and the direction of synchronization automatically follows changes of the PTP port states.
 
@@ -261,4 +261,4 @@ It is recommended to use seperate configuration files for `ptp4l` and `phc2sys` 
 
 #### SEE ALSO
 
-[ptp4l(8)](/documentation/ptp4l)
+[ptp4l(8)](/documentation/ptp4l/)

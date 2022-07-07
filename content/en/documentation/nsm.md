@@ -92,4 +92,4 @@ To avoid securely this unexpected behaviour, different configuration files for `
 
 #### SEE ALSO
 
-[ptp4l(8)](/documentation/ptp4l)
+[ptp4l(8)](/documentation/ptp4l/)

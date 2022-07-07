@@ -16,7 +16,7 @@ date: 2014-06-04
 
 If neither `tx-type` nor `rx-filter` values are passed to the program, it will use the `SIOCGHWTSTAMP` ioctl(2) to non-destructively read the current hardware time stamping policy.
 
-This program is a debugging tool. The [ptp4l(8)](/documentation/ptp4l) program does not need this program to function, it will set the policy automatically as appropriate.
+This program is a debugging tool. The [ptp4l(8)](/documentation/ptp4l/) program does not need this program to function, it will set the policy automatically as appropriate.
 
 #### OPTIONS
 
@@ -42,4 +42,4 @@ This program is a debugging tool. The [ptp4l(8)](/documentation/ptp4l) program d
 
 #### SEE ALSO
 
-ioctl(2), [ptp4l(8)](/documentation/ptp4l)
+ioctl(2), [ptp4l(8)](/documentation/ptp4l/)
