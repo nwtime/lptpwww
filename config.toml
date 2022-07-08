@@ -8,8 +8,6 @@ enableRobotsTXT = true
   [[params.plugins.js]]
   link = "plugins/bootstrap-5.1.3/js/bootstrap.bundle.min.js"
 
-enableRobotsTXT = false
-
 contentDir = "content/en"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
@@ -51,14 +49,8 @@ weight = 1
 copyright = "Network Time Foundation"
 logo2 = "images/logo.png"
 github_repo = "https://github.com/richardcochran/linuxptp"
-<<<<<<< HEAD
-
-[params.ui]
-sidebar_search_disable = false
-=======
 description = "A Linux implementation of the Precision Time Protocol (PTP) according to IEEE standard 1588."
 images = ["/images/featured.webp"]
->>>>>>> b966483ac91236a7f4ccdf0100f3c15ea64c99ab
 
 [params.links]
 [[params.links.user]]
