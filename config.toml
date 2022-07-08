@@ -50,6 +50,7 @@ copyright = "Network Time Foundation"
 logo2 = "images/logo.png"
 github_repo = "https://github.com/richardcochran/linuxptp"
 description = "A Linux implementation of the Precision Time Protocol (PTP) according to IEEE standard 1588."
+images = ["/images/featured.webp"]
 
 [params.links]
 [[params.links.user]]
