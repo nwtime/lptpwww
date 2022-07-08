@@ -1,47 +1,5 @@
 {{ "<!-- navigation -->" | safeHTML }}
 
-<<<<<<< HEAD
-<header class="sticky-top navigation">
-<!-- logos -->
-  <nav class="navbar navbar-expand-lg navbar-light py-0">
-	<div class="container-fluid">
-	  <div class="d-flex align-items-center" style="height:80px; width:80px;">
-	    <a class="navbar-brand" style="height:85px; width:85px; text-decoration: none;" href="https://www.nwtime.org"><img class="img-fluid" src="{{ site.Params.logo2 | absURL }}" alt=""></a>
-	  </div>
-	  <div class="d-flex align-items-center">
-		<a class="navbar-brand text-logo fw-bold nav-link py-0" href="{{ site.BaseURL }}">LinuxPTP Project</a>
-      </div>
-<!-- menus -->
-      <div class="collapse navbar-collapse d-flex align-items-center" id="navigation">
-        <ul class="navbar-nav me-auto py-0">
-          {{ range site.Menus.main }}
-          {{ if .HasChildren }}
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {{ .Name }}
-            </a>
-            <div class="dropdown-menu">
-              {{ range .Children }}
-              <a class="dropdown-item" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="{{ .URL | absURL }}">{{ .Name }}</a>
-              {{ end }}
-            </div>
-          </li>
-          {{ else }}
-          <li class="nav-item me-auto py-0">
-            <a class="nav-link" style="text-decoration: none; font-size: 16px; font-family: 'Nunito Sans', sans-serif;" href="{{ .URL | absURL }}">{{ .Name }}</a>
-          </li>
-          {{ end }}
-          {{ end }}
-        </ul>
-	  </div>
-{{/* Insert search button here once search works
-<form class="form-inline my-2 my-lg-0">
-<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-</form>
-*/}}
-    </div>
-=======
 <!-- logos -->
   <nav class="navbar navbar-expand-lg navbar-light">
 	<div class="container-fluid">
@@ -63,15 +21,10 @@
   </ul>
   </div>
 {{ end }}
->>>>>>> b966483ac91236a7f4ccdf0100f3c15ea64c99ab
   </nav>
 	
 <!-- bottom border --> 
   <div class="header-border">
   </div>
-<<<<<<< HEAD
-</header>
-=======
->>>>>>> b966483ac91236a7f4ccdf0100f3c15ea64c99ab
 
 {{ "<!-- /navigation -->" | safeHTML }}
