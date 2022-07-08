@@ -1,3 +1,0 @@
-[submodule "common"]
-	path = common
-	url = ssh://git@bitbucket.nwtime.org:7999/websites/common.git

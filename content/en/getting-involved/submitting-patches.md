@@ -1,6 +1,6 @@
 ---
 title: "Submitting Patches"
-type: archives
+description: "Instructions for submitting a patch to the Linux PTP Project."
 ---
 
 ### Submitting Patches
@@ -16,7 +16,7 @@ type: archives
 
 4. **Sign-Off** each commit, so the changes can be properly attributed to
    you and you explicitly give your agreement for distribution under
-   linuxptp's [license](/about/license). Signing-off is as simple as:
+   linuxptp's [license](/about/license/). Signing-off is as simple as:
 
    `git commit -s`
 

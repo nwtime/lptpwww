@@ -1,9 +1,20 @@
 {{ define "main" }}
+<body style="--bs-body-text-align: center;">
+  <section class="min-vh-100 mt-auto">
+  	<h4>{{ .Title }}</h4></br> 
 
-<section class="section pt-4 pb-0">
-  <div class="container">
-            {{.Content}}
-          </div>
-</section>
-
+	<div class="container" style="--bs-body-text-align: start;">
+    <p>{{.Content}}</p>
+	</div>
+	<hr class="mt-5">
+<br />
+<button class="btn btn-primary btn-lg">
+  <a class="btn btn-primary btn-lg" href="https://sourceforge.net/projects/linuxptp/files/latest/download">Download Linux PTP <img src="/images/icons/download.svg"></img></a>
+    </button>	
+<button class="btn btn-primary btn-lg">
+  <a class="btn btn-primary btn-lg" href="/getting-involved/reporting-bugs/">Report a Bug <img src="/images/icons/bug.svg"></img></a>
+</button>
+<br /><br />
+  </section>
+</body>
 {{ end }}

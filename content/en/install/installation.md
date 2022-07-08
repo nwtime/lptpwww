@@ -1,5 +1,6 @@
 ---
 title: "Installation"
+description: "The make command is used to install the Linux PTP source code."
 ---
 
 ### Installation

@@ -1,19 +1,42 @@
 <head>
   <meta charset="UTF-8">
-  
+{{- if .Params.noindex -}}
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+{{ else }}
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+{{- end -}}
 
-  <!-- for search engine optimization and third-party search engines like Elastic App Search-->
-  {{ if .Page.Description }}
-    <meta name="description" content="{{ .Page.Description }}">
-  {{ else }}
-    {{ $desc := (.Page.Content | safeHTML | truncate 150) }}
-    <meta name="description" content="{{ $desc }}">
-  {{ end }}
+<link rel="canonical" href="{{ .Permalink }}" />
 
-  {{- template "_internal/opengraph.html" . -}}
-  <!--To comply with GDPR, cookie consent scripts places in head-end must execute before Google Analytics is enabled -->
-  {{ template "_internal/google_analytics.html" . }}
+<!-- for search engine optimization and third-party search engines like Elastic App Search-->
+{{- template "_internal/opengraph.html" . -}}
+
+<!-- Twitter card support -->
+{{ template "_internal/twitter_cards.html" . }}
+
+<!-- Google Analytics and Search -->
+{{ if hugo.IsProduction }}
+<!-- Use custom placeholder for search -->
+<script>
+window.onload = demo;
+function demo() {
+    document.getElementById("gsc-i-id1").setAttribute("placeholder", "Search...")
+}
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3L2S4S3B0T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3L2S4S3B0T', { 'anonymize_ip': true });
+</script>
+{{ end }}
+
+  <!-- prefetch and preconnect Google Nunito fonts; load Google font css directly -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap" rel="stylesheet"/>
 
   <title>{{ .Title }}</title>
 
@@ -23,13 +46,8 @@
   {{ with site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
   {{ hugo.Generator }}
 
-  {{ "<!-- Plugins -->" | safeHTML }}
-  {{ range site.Params.plugins.css }}
-  <link rel="stylesheet" href="{{ .link | absURL }}">
-  {{ end }}
-
   {{ "<!-- Main Stylesheet -->" | safeHTML }}
-  {{ $styles := resources.Get "scss/nwtime.scss" | toCSS | minify }}
+  {{ $styles := resources.Get "scss/nwtime.scss" | toCSS | minify |fingerprint "md5" }}
   <link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen">
 
   {{ "<!-- Favicon -->" | safeHTML }}

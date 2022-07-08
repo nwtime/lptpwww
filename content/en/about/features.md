@@ -1,5 +1,6 @@
 ---
 title: "Features"
+description: "Listing of features supported by Linux PTP software."
 ---
 
 ### Features
@@ -16,7 +17,7 @@ title: "Features"
 
   - Transport over UDP/IPv4, UDP/IPv6, and raw Ethernet (Layer 2).
 
-  - Supports [IEEE 802.1AS-2011](https://standards.ieee.org/standard/802_1AS-2011.html) in the role of end station.
+  - Supports [IEEE 802.1AS-2011](https://standards.ieee.org/ieee/802.1AS/3956/) in the role of end station.
 
   - Modular design allowing painless addition of new transports and
     clock servos.
@@ -31,7 +32,7 @@ title: "Features"
 
     - The enterprise profile.
 
-    - The telecom profiles G.8265.1, G.8275.1, and G.8275.2.
+    - The telecom profiles [G.8265.1](/documentation/configs/g-8265-1/), [G.8275.1](/documentation/configs/g-8275-1/), and [G.8275.2](/documentation/configs/g-8275-2/).
 
   - Supports the [NetSync Monitor protocol](https://www.meinbergglobal.com/english/news/optimize-network-synchronization-with-the-netsync-monitor.htm).
 

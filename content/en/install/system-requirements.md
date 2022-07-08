@@ -1,5 +1,6 @@
 ---
 title: "System Requirements"
+description: "In order to run Linux PTP, you need Linux kernel version 3.0 or newer and a network interface which supports PTP."
 ---
 
 ### System Requirements
