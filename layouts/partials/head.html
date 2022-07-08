@@ -1,6 +1,6 @@
 <head>
   <meta charset="UTF-8">
-{{- if .Params.noindex -}}
+{{ if or (.Params.noindex) (eq hugo.Environment "development") }}
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 {{ else }}
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
