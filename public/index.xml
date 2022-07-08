@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Welcome to The Linux PTP Project on Linux PTP Project</title><link>https://linuxptp.nwtime.org/</link><description>Recent content in Welcome to The Linux PTP Project on Linux PTP Project</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sat, 14 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://linuxptp.nwtime.org/index.xml" rel="self" type="application/rss+xml"/><item><title>ptp4l(8): PTP Boundary/Ordinary/Transparent Clock</title><link>https://linuxptp.nwtime.org/documentation/ptp4l/</link><pubDate>Sat, 14 May 2022 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/ptp4l/</guid><description>ptp4l(8): PTP Boundary/Ordinary/Transparent Clock SYNOPSIS ptp4l [ -AEP246HSLmqsv ] [ -f config ] [ -p phc-device ] [ -l print-level ] [ -i interface ] [ long-options ] &amp;hellip;
+DESCRIPTION ptp4l is an implementation of the Precision Time Protocol (PTP) according to IEEE standard 1588 for Linux. It implements Boundary Clock (BC), Ordinary Clock (OC), and Transparent Clock (TC).
+OPTIONS -A Select the delay mechanism automatically. Start with E2E and switch to P2P when a peer delay request is received.</description></item><item><title>timemaster(8): run NTP with PTP as reference clocks</title><link>https://linuxptp.nwtime.org/documentation/timemaster/</link><pubDate>Tue, 08 Mar 2022 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/timemaster/</guid><description>timemaster(8): run NTP with PTP as reference clocks SYNOPSIS timemaster [ -nmqv ] [ -l print-level ] -f file
+DESCRIPTION timemaster is a program that uses ptp4l and phc2sys in combination with chronyd or ntpd to synchronize the system clock to NTP and PTP time sources. The PTP time is provided by phc2sys and ptp4l via SHM reference clocks tochronyd/ntpd, which can compare all time sources and use the best sources to synchronize the system clock.</description></item><item><title>ts2phc(8): Synchronizes one or more PTP Hardware Clocks using external time stamps</title><link>https://linuxptp.nwtime.org/documentation/ts2phc/</link><pubDate>Sun, 18 Jul 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/ts2phc/</guid><description>ts2phc(8): Synchronizes one or more PTP Hardware Clocks using external time stamps SYNOPSIS ts2phc [ -hmqv ] [ -c device|name ] [ -f config ] [ -l print-level ] [ -s device|name ] [ long-options ] &amp;hellip;
+DESCRIPTION ts2phc synchronizes PTP Hardware Clocks (PHC) to external time stamp signals. A single source may be used to distribute time to one or more PHC devices.
+OPTIONS -c device|name) Specifies a PHC to be synchronized.</description></item><item><title>G.8265.1</title><link>https://linuxptp.nwtime.org/documentation/configs/g-8265-1/</link><pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/g-8265-1/</guid><description>G.8265.1 The ITU Telecommunication Standardization Sector provides links to the current G.8265.1 Recommendations.
+Telecom G.8265.1 example configuration containing those attributes which either differ from the default configuration or are relevant to the profile. Refer to ptp4l(8) for the complete list of available options.
+[global]
+serverOnly 0
+hybrid_e2e 1
+inhibit_multicast_service 1
+unicast_listen 1
+unicast_req_duration 60
+domainNumber 4
+#
+# Customize the following for slave operation:
+#
+#[unicast_master_table]
+#table_id 1
+#logQueryInterval 2
+#UDPv4 192.</description></item><item><title>G.8275.1</title><link>https://linuxptp.nwtime.org/documentation/configs/g-8275-1/</link><pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/g-8275-1/</guid><description>G.8275.1 The ITU Telecommunication Standardization Sector provides links to the current G.8275.1 Recommendations.
+Telecom G.8275.1 example configuration containing those attributes which either differ from the default configuration or are relevant to the profile. Refer to ptp4l(8) for the complete list of available options.
+[global]
+dataset_comparison G.8275.x
+G.8275.defaultDS.localPriority 128
+maxStepsRemoved 255
+logAnnounceInterval -3
+logSyncInterval -4
+logMinDelayReqInterval -4
+serverOnly 0
+G.8275.portDS.localPriority 128
+ptp_dst_mac 01:80:C2:00:00:0E
+network_transport L2
+domainNumber 24</description></item><item><title>G.8275.2</title><link>https://linuxptp.nwtime.org/documentation/configs/g-8275-2/</link><pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/g-8275-2/</guid><description>G.8275.2 The ITU Telecommunication Standardization Sector provides links to the current G.8275.2 Recommendations.
+Telecom G.8275.2 example configuration containing those attributes which either differ from the default configuration or are relevant to the profile. Refer to ptp4l(8) for the complete list of available options.
+[global]
+dataset_comparison G.8275.x
+G.8275.defaultDS.localPriority 128
+maxStepsRemoved 255
+logAnnounceInterval 0
+serverOnly 0
+G.8275.portDS.localPriority 128
+hybrid_e2e 1
+inhibit_multicast_service 1
+unicast_listen 1
+unicast_req_duration 60
+domainNumber 44
+#
+# Customize the following for slave operation:
+#
+#[unicast_master_table]
+#table_id 1
+#logQueryInterval 2
+#UDPv4 192.</description></item><item><title>Automotive Master</title><link>https://linuxptp.nwtime.org/documentation/configs/automotive-master/</link><pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/automotive-master/</guid><description>Automotive Master Automotive profile example configuration for master containing those attributes which differ from the default configuration. Refer to ptp4l(8) for the complete list of available options.
+[global]
+# Options carried over from gPTP.
+gmCapable 1
+priority1 248
+priority2 248
+logSyncInterval -3
+syncReceiptTimeout 3
+neighborPropDelayThresh 800
+min_neighbor_prop_delay -20000000
+assume_two_step 1
+path_trace_enabled 1
+follow_up_info 1
+transportSpecific 0x1
+ptp_dst_mac 01:80:C2:00:00:0E
+network_transport L2
+delay_mechanism P2P
+#
+# Automotive Profile specific options
+#
+BMCA noop
+serverOnly 1
+inhibit_announce 1
+asCapable true
+inhibit_delay_req 1</description></item><item><title>phc2sys(8): synchronize two or more clocks</title><link>https://linuxptp.nwtime.org/documentation/phc2sys/</link><pubDate>Fri, 08 Jan 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/phc2sys/</guid><description>phc2sys(8): synchronize two or more clocks SYNOPSIS phc2sys -a [ -r ] [ -r ] [ -f config-file ] [ options ] [ long-options ]
+phc2sys [ -f config-file ] [ -d pps-device ] [ -s device ] [ -c device ] [ -O offset ] [ -w ] [ options ] [ long-options ] &amp;hellip;
+DESCRIPTION phc2sys is a program which synchronizes two or more clocks in the system. Typically, it is used to synchronize the system clock to a PTP hardware clock (PHC), which itself is synchronized by the ptp4l(8) program.</description></item><item><title>Automotive Slave</title><link>https://linuxptp.nwtime.org/documentation/configs/automotive-slave/</link><pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/automotive-slave/</guid><description>Automotive Slave Automotive profile example configuration for clients containing those attributes which differ from the default configuration. Refer to ptp4l(8) for the complete list of available options.
+[global]
+#
+# Options carried over from gPTP.
+#
+gmCapable 1
+priority1 248
+priority2 248
+logSyncInterval -3
+syncReceiptTimeout 3
+neighborPropDelayThresh 800
+min_neighbor_prop_delay -20000000
+assume_two_step 1
+path_trace_enabled 1
+follow_up_info 1
+transportSpecific 0x1
+ptp_dst_mac 01:80:C2:00:00:0E
+network_transport L2
+delay_mechanism P2P
+#
+# Automotive Profile specific options
+#
+BMCA noop
+clientOnly 1
+inhibit_announce 1
+asCapable true
+ignore_source_id 1
+# Required to quickly correct Time Jumps in master
+step_threshold 1
+operLogSyncInterval 0
+operLogPdelayReqInterval 2
+msg_interval_request 1
+servo_offset_threshold 30
+servo_num_offset_values 10</description></item><item><title>phc_ctl(8): directly control PHC device clock</title><link>https://linuxptp.nwtime.org/documentation/phc_ctl/</link><pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/phc_ctl/</guid><description>phc_ctl(8): directly control PHC device clock SYNOPSIS phc_ctl [ options ] &amp;lt;device&amp;gt; [ commands ]
+DESCRIPTION phc_ctl is a program which can be used to directly control a PHC clock device. Typically, it is used for debugging purposes, and has little use for general control of the device. For general control of PHC clock devices, phc2sys(8) should be preferred.
+&amp;lt;device&amp;gt; may be either CLOCK_REALTIME, any /dev/ptpX device, or any ethernet device which supports ethtool&amp;rsquo;s get_ts_info ioctl.</description></item><item><title>ts2phc Transparent Clock Example</title><link>https://linuxptp.nwtime.org/documentation/configs/ts2phc-tc/</link><pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/ts2phc-tc/</guid><description>ts2phc Transparent Clock Example This example shows ts2phc keeping a group of three Intel i210 cards synchronized to each other in order to form a Transparent Clock. The cards are configured to use their SDP0 pins connected in hardware. Here eth3 and eth4 will be slaved to eth6.
+Important! The polarity is set to both because the i210 always time stamps both the rising and the falling edges of the input signal.</description></item><item><title>pmc(8): PTP management client</title><link>https://linuxptp.nwtime.org/documentation/pmc/</link><pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/pmc/</guid><description>pmc(8): PTP management client SYNOPSIS pmc [ -f config-file ] [ -2 | -4 | -6 | -u ] [ -b boundary-hops ] [ -d domain-number ] [ -i interface ] [ -s uds-address ] [ -t transport-specific-field ] [ long-options ] [ -v ] [ -z ] [ command ] &amp;hellip;
+DESCRIPTION pmc is a program which implements a PTP management client according to IEEE standard 1588. The program reads from the standard input or from the command line actions specified by name and management ID, sends them over the selected transport and prints any received replies.</description></item><item><title>Generic ts2phc Example</title><link>https://linuxptp.nwtime.org/documentation/configs/ts2phc-generic/</link><pubDate>Sun, 07 Jul 2019 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/ts2phc-generic/</guid><description>Generic ts2phc Example This example uses a PPS signal from a GPS receiver as an input to the SDP0 pin of an Intel i210 card. The pulse from the receiver has a width of 100 milliseconds.
+Important! The polarity is set to both because the i210 always time stamps both the rising and the falling edges of the input signal.
+Refer to ts2phc(8) for more information about the ts2phc options.</description></item><item><title>nsm(8): NetSync Monitor client</title><link>https://linuxptp.nwtime.org/documentation/nsm/</link><pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/nsm/</guid><description>nsm(8): NetSync Monitor client SYNOPSIS nsm [ -f config ] [ -i interface ] [ long-options ] [ command ] &amp;hellip;
+DESCRIPTION nsm is a program which implements a NetSync Monitor (NSM) client. NSM is an extension to the Precision Time Protocol (PTP), which enables a client to measure the offset of its clock against any PTP clock in the network which supports NSM. It uses unicast messages, but unlike PTP in the unicast mode it does not require the server to keep any state specific to the client.</description></item><item><title>snmpd.conf</title><link>https://linuxptp.nwtime.org/documentation/configs/snmpd-conf/</link><pubDate>Tue, 21 Aug 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/snmpd-conf/</guid><description>snmpd.conf Linux PTP parameters for snmpd.conf.
+# Map 'linuxptp' community to the 'LinuxPtpUser'
+# Map 'public' community to the 'AllUser'
+# sec.name source community
+com2sec LinuxPtpUser default linuxptp
+com2sec AllUser default public
+# Map 'LinuxPtpUser' to 'LinuxPtpGroup' for SNMP Version 2c
+# Map 'AllUser' to 'AllGroup' for SNMP Version 2c
+# sec.model sec.name
+group LinuxPtpGroup v2c LinuxPtpUser
+group AllGroup v2c AllUser
+# Define 'SystemView', which includes everything under .1.3.6.1.2.1.241
+# Define 'AllView', which includes everything under .</description></item><item><title>gPTP</title><link>https://linuxptp.nwtime.org/documentation/configs/gptp/</link><pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/gptp/</guid><description>gPTP 802.1AS example configuration containing those attributes which differ from the default configuration. Refer to ptp4l(8) for the complete list of available options.
+[global]
+gmCapable 1
+priority1 248
+priority2 248
+logAnnounceInterval 0
+logSyncInterval -3
+syncReceiptTimeout 3
+neighborPropDelayThresh 800
+min_neighbor_prop_delay -20000000
+assume_two_step 1
+path_trace_enabled 1
+follow_up_info 1
+transportSpecific 0x1
+ptp_dst_mac 01:80:C2:00:00:0E
+network_transport L2
+delay_mechanism P2P</description></item><item><title>Default Configuration</title><link>https://linuxptp.nwtime.org/documentation/configs/default-cfg/</link><pubDate>Fri, 25 May 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/default-cfg/</guid><description>Default Configuration The settings in this file (default.cfg) are assumed unless overridden by a custom configuration. Examples of custom configurations are listed in Example Configurations.
+Refer to ptp4l(8) for the definition and possible values for each configuration option.
+[global]
+#
+# Default Data Set
+#
+twoStepFlag 1
+clientOnly 0
+socket_priority 0
+priority1 128
+priority2 128
+domainNumber 0
+#utc_offset 37
+clockClass 248
+clockAccuracy 0xFE
+offsetScaledLogVariance 0xFFFF
+free_running 0
+freq_est_interval 1
+dscp_event 0
+dscp_general 0
+dataset_comparison ieee1588
+G.</description></item><item><title>End to End Transparent Clock</title><link>https://linuxptp.nwtime.org/documentation/configs/e2e-tc/</link><pubDate>Fri, 25 May 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/e2e-tc/</guid><description>End to End Transparent Clock End to End Transparent Clock example configuration containing those attributes which differ from the default configuration. Refer to ptp4l(8) for the complete list of available options.
+[global]
+priority1 254
+free_running 1
+freq_est_interval 3
+tc_spanning_tree 1
+summary_interval 1
+clock_type E2E_TC
+network_transport L2</description></item><item><title>Peer to Peer Transparent Clock</title><link>https://linuxptp.nwtime.org/documentation/configs/p2p-tc/</link><pubDate>Fri, 25 May 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/p2p-tc/</guid><description>Peer to Peer Transparent Clock Peer to Peer Transparent Clock example configuration containing those attributes which differ from the default configuration. Refer to ptp4l(8) for the complete list of available options.
+[global]
+priority1 254
+free_running 1
+freq_est_interval 3
+tc_spanning_tree 1
+summary_interval 1
+clock_type P2P_TC
+network_transport L2
+delay_mechanism P2P</description></item><item><title>Unicast Master</title><link>https://linuxptp.nwtime.org/documentation/configs/unicast-master/</link><pubDate>Mon, 30 Apr 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/unicast-master/</guid><description>Unicast Master Unicast Master example configuration containing those attributes which differ from the default configuration. Refer to ptp4l(8) for the complete list of available options.
+[global]
+hybrid_e2e 1
+inhibit_multicast_service 1
+unicast_listen 1</description></item><item><title>Unicast Slave</title><link>https://linuxptp.nwtime.org/documentation/configs/unicast-slave/</link><pubDate>Mon, 30 Apr 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/unicast-slave/</guid><description>Unicast Slave Unicast Slave example configuration with contrived master tables.
+This example will not work out of the box!
+Refer to the Unicast Discovery Options section of ptp4l(8) for descriptions of the listed options.
+[global]
+#
+# Request service for sixty seconds.
+#
+unicast_req_duration 60
+#
+# This table has four possible UDPv4 master clocks.
+#
+[unicast_master_table]
+table_id 1
+logQueryInterval 2
+UDPv4 192.168.1.11
+UDPv4 192.168.2.22
+UDPv4 192.168.3.33
+#
+# This table has just one Layer-2 master clock.</description></item><item><title>hwstamp_ctl(8): set time stamping policy at the driver level</title><link>https://linuxptp.nwtime.org/documentation/hwstamp_ctl/</link><pubDate>Wed, 04 Jun 2014 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/hwstamp_ctl/</guid><description>hwstamp_ctl(8): set time stamping policy at the driver level SYNOPSIS hwstamp_ctl -i interface [ -r rx-filter ] [ -t tx-type ]
+DESCRIPTION hwstamp_ctl is a program used to set and get the hardware time stamping policy at the network driver level with the SIOCSHWTSTAMP ioctl(2). The tx-type and rx-filter values are hints to the driver what it is expected to do. If the requested fine-grained filtering for incoming packets is not supported, the driver may time stamp more than just the requested types of packets.</description></item><item><title>Default Configuration Parameters</title><link>https://linuxptp.nwtime.org/documentation/default/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/default/</guid><description>Default Configuration Parameters The following tables summarize the default configuration values found in default.cfg. Refer to ptp4l(8) for a complete listing of all configuration options.
+Default Program and Clock Options Option Default Value Description clientOnly 0 The local clock is a client-only clock if enabled (1).
+The default is disabled (0). clockAccuracy 0xFE Used in the PTP server selection algorithm. clockClass 248 Denotes the traceability of the time distributed by the grandmaster clock.</description></item><item><title>Development</title><link>https://linuxptp.nwtime.org/getting-involved/development/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/getting-involved/development/</guid><description>Development If you would like to get involved in improving the software, please join the linuxptp-devel mailing list.</description></item><item><title>Features</title><link>https://linuxptp.nwtime.org/about/features/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/about/features/</guid><description>Features Supports hardware and software time stamping via the Linux SO_TIMESTAMPING socket option.
+Supports the Linux PTP Hardware Clock (PHC) subsystem by using the clock_gettime family of calls, including the clock_adjtimex system call.
+Implements Boundary Clock (BC), Ordinary Clock (OC) and Transparent Clock (TC).
+Transport over UDP/IPv4, UDP/IPv6, and raw Ethernet (Layer 2).
+Supports IEEE 802.1AS-2011 in the role of end station.</description></item><item><title>Getting the Code</title><link>https://linuxptp.nwtime.org/install/getting-the-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/install/getting-the-code/</guid><description>Getting the Code You can download the latest released version at Source Forge.
+The source code is managed using the git version control system. To get your own copy of the project sources, use the following command.
+git clone git://git.code.sf.net/p/linuxptp/code linuxptp
+If the git protocol is blocked by your local area network, then you can use the alternative HTTP protocol instead.
+git clone http://git.code.sf.net/p/linuxptp/code linuxptp
+ </description></item><item><title>Installation</title><link>https://linuxptp.nwtime.org/install/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/install/installation/</guid><description>Installation Just type make.
+If you compiled your own kernel (and the headers are not installed into the system path), then you should set the KBUILD_OUTPUT environment variable.
+In order to install the programs and man pages into /usr/local, run the make install target. You can change the installation directories by setttings the variables prefix, sbindir, mandir, and man8dir on the make command line.</description></item><item><title>License</title><link>https://linuxptp.nwtime.org/about/license/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/about/license/</guid><description>License The software is copyrighted by the authors and is licensed under the GNU General Public License. See the file, COPYING, for details of the license terms.</description></item><item><title>Reporting Bugs</title><link>https://linuxptp.nwtime.org/getting-involved/reporting-bugs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/getting-involved/reporting-bugs/</guid><description>Reporting Bugs Please report any bugs or other issues with the software to the linuxptp-users mailing list.</description></item><item><title>Submitting Patches</title><link>https://linuxptp.nwtime.org/getting-involved/submitting-patches/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/getting-involved/submitting-patches/</guid><description>Submitting Patches Before submitting patches, please make sure that you are starting your work on the current HEAD of the git repository.
+Please checkout the CODING_STYLE.org file for guidelines on how to properly format your code.
+Describe your changes. Each patch will be reviewed, and the reviewers need to understand why you did what you did.
+Sign-Off each commit, so the changes can be properly attributed to you and you explicitly give your agreement for distribution under linuxptp&amp;rsquo;s license.</description></item><item><title>System Requirements</title><link>https://linuxptp.nwtime.org/install/system-requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/install/system-requirements/</guid><description>System Requirements In order to run this software, you need Linux kernel version 3.0 or newer. Check whether your network interface supports PTP with the following command.
+ethtool -T eth0
+This command shows whether a MAC supports hardware or software time stamping. The following example output indicates support for hardware time stamping.
+Time stamping parameters for eth6:
+Capabilities:
+hardware-transmit (SOF_TIMESTAMPING_TX_HARDWARE)
+software-transmit (SOF_TIMESTAMPING_TX_SOFTWARE)
+hardware-receive (SOF_TIMESTAMPING_RX_HARDWARE)
+software-receive (SOF_TIMESTAMPING_RX_SOFTWARE)
+software-system-clock (SOF_TIMESTAMPING_SOFTWARE)
+hardware-raw-clock (SOF_TIMESTAMPING_RAW_HARDWARE)
+PTP Hardware Clock: 1
+Hardware Transmit Timestamp Modes:
+off (HWTSTAMP_TX_OFF)
+on (HWTSTAMP_TX_ON)
+Hardware Receive Filter Modes:
+none (HWTSTAMP_FILTER_NONE)
+all (HWTSTAMP_FILTER_ALL)
+The next example shows the case where the MAC only supports software time stamping.</description></item><item><title>Thanks</title><link>https://linuxptp.nwtime.org/about/thanks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/about/thanks/</guid><description>Thanks Thanks to AudioScience Inc. for sponsoring the IEEE 8021.AS support.
+Thanks to Exablaze for donating an ExaNIC X10 (now known as Cisco Nexus SmartNIC).
+Thanks to Intel Corporation for donating four Intel Ethernet NICs: the 82574, 82580, 82599, and the i210.
+Thanks to Meinberg Funkuhren for donating a LANTIME M1000.
+Thanks to Moser Baer for sponsoring the Telecom Profiles and unicast support.
+For testing I use an OTMC 100 grandmaster clock donated by OMICRON Lab.</description></item></channel></rss>

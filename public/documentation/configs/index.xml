@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Configs on Linux PTP Project</title><link>https://linuxptp.nwtime.org/documentation/configs/</link><description>Recent content in Configs on Linux PTP Project</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 21 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://linuxptp.nwtime.org/documentation/configs/index.xml" rel="self" type="application/rss+xml"/><item><title>G.8265.1</title><link>https://linuxptp.nwtime.org/documentation/configs/g-8265-1/</link><pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/g-8265-1/</guid><description>G.8265.1 The ITU Telecommunication Standardization Sector provides links to the current G.8265.1 Recommendations.
+Telecom G.8265.1 example configuration containing those attributes which either differ from the default configuration or are relevant to the profile. Refer to ptp4l(8) for the complete list of available options.
+[global]
+serverOnly 0
+hybrid_e2e 1
+inhibit_multicast_service 1
+unicast_listen 1
+unicast_req_duration 60
+domainNumber 4
+#
+# Customize the following for slave operation:
+#
+#[unicast_master_table]
+#table_id 1
+#logQueryInterval 2
+#UDPv4 192.</description></item><item><title>G.8275.1</title><link>https://linuxptp.nwtime.org/documentation/configs/g-8275-1/</link><pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/g-8275-1/</guid><description>G.8275.1 The ITU Telecommunication Standardization Sector provides links to the current G.8275.1 Recommendations.
+Telecom G.8275.1 example configuration containing those attributes which either differ from the default configuration or are relevant to the profile. Refer to ptp4l(8) for the complete list of available options.
+[global]
+dataset_comparison G.8275.x
+G.8275.defaultDS.localPriority 128
+maxStepsRemoved 255
+logAnnounceInterval -3
+logSyncInterval -4
+logMinDelayReqInterval -4
+serverOnly 0
+G.8275.portDS.localPriority 128
+ptp_dst_mac 01:80:C2:00:00:0E
+network_transport L2
+domainNumber 24</description></item><item><title>G.8275.2</title><link>https://linuxptp.nwtime.org/documentation/configs/g-8275-2/</link><pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/g-8275-2/</guid><description>G.8275.2 The ITU Telecommunication Standardization Sector provides links to the current G.8275.2 Recommendations.
+Telecom G.8275.2 example configuration containing those attributes which either differ from the default configuration or are relevant to the profile. Refer to ptp4l(8) for the complete list of available options.
+[global]
+dataset_comparison G.8275.x
+G.8275.defaultDS.localPriority 128
+maxStepsRemoved 255
+logAnnounceInterval 0
+serverOnly 0
+G.8275.portDS.localPriority 128
+hybrid_e2e 1
+inhibit_multicast_service 1
+unicast_listen 1
+unicast_req_duration 60
+domainNumber 44
+#
+# Customize the following for slave operation:
+#
+#[unicast_master_table]
+#table_id 1
+#logQueryInterval 2
+#UDPv4 192.</description></item><item><title>Automotive Master</title><link>https://linuxptp.nwtime.org/documentation/configs/automotive-master/</link><pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/automotive-master/</guid><description>Automotive Master Automotive profile example configuration for master containing those attributes which differ from the default configuration. Refer to ptp4l(8) for the complete list of available options.
+[global]
+# Options carried over from gPTP.
+gmCapable 1
+priority1 248
+priority2 248
+logSyncInterval -3
+syncReceiptTimeout 3
+neighborPropDelayThresh 800
+min_neighbor_prop_delay -20000000
+assume_two_step 1
+path_trace_enabled 1
+follow_up_info 1
+transportSpecific 0x1
+ptp_dst_mac 01:80:C2:00:00:0E
+network_transport L2
+delay_mechanism P2P
+#
+# Automotive Profile specific options
+#
+BMCA noop
+serverOnly 1
+inhibit_announce 1
+asCapable true
+inhibit_delay_req 1</description></item><item><title>Automotive Slave</title><link>https://linuxptp.nwtime.org/documentation/configs/automotive-slave/</link><pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/automotive-slave/</guid><description>Automotive Slave Automotive profile example configuration for clients containing those attributes which differ from the default configuration. Refer to ptp4l(8) for the complete list of available options.
+[global]
+#
+# Options carried over from gPTP.
+#
+gmCapable 1
+priority1 248
+priority2 248
+logSyncInterval -3
+syncReceiptTimeout 3
+neighborPropDelayThresh 800
+min_neighbor_prop_delay -20000000
+assume_two_step 1
+path_trace_enabled 1
+follow_up_info 1
+transportSpecific 0x1
+ptp_dst_mac 01:80:C2:00:00:0E
+network_transport L2
+delay_mechanism P2P
+#
+# Automotive Profile specific options
+#
+BMCA noop
+clientOnly 1
+inhibit_announce 1
+asCapable true
+ignore_source_id 1
+# Required to quickly correct Time Jumps in master
+step_threshold 1
+operLogSyncInterval 0
+operLogPdelayReqInterval 2
+msg_interval_request 1
+servo_offset_threshold 30
+servo_num_offset_values 10</description></item><item><title>ts2phc Transparent Clock Example</title><link>https://linuxptp.nwtime.org/documentation/configs/ts2phc-tc/</link><pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/ts2phc-tc/</guid><description>ts2phc Transparent Clock Example This example shows ts2phc keeping a group of three Intel i210 cards synchronized to each other in order to form a Transparent Clock. The cards are configured to use their SDP0 pins connected in hardware. Here eth3 and eth4 will be slaved to eth6.
+Important! The polarity is set to both because the i210 always time stamps both the rising and the falling edges of the input signal.</description></item><item><title>Generic ts2phc Example</title><link>https://linuxptp.nwtime.org/documentation/configs/ts2phc-generic/</link><pubDate>Sun, 07 Jul 2019 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/ts2phc-generic/</guid><description>Generic ts2phc Example This example uses a PPS signal from a GPS receiver as an input to the SDP0 pin of an Intel i210 card. The pulse from the receiver has a width of 100 milliseconds.
+Important! The polarity is set to both because the i210 always time stamps both the rising and the falling edges of the input signal.
+Refer to ts2phc(8) for more information about the ts2phc options.</description></item><item><title>snmpd.conf</title><link>https://linuxptp.nwtime.org/documentation/configs/snmpd-conf/</link><pubDate>Tue, 21 Aug 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/snmpd-conf/</guid><description>snmpd.conf Linux PTP parameters for snmpd.conf.
+# Map 'linuxptp' community to the 'LinuxPtpUser'
+# Map 'public' community to the 'AllUser'
+# sec.name source community
+com2sec LinuxPtpUser default linuxptp
+com2sec AllUser default public
+# Map 'LinuxPtpUser' to 'LinuxPtpGroup' for SNMP Version 2c
+# Map 'AllUser' to 'AllGroup' for SNMP Version 2c
+# sec.model sec.name
+group LinuxPtpGroup v2c LinuxPtpUser
+group AllGroup v2c AllUser
+# Define 'SystemView', which includes everything under .1.3.6.1.2.1.241
+# Define 'AllView', which includes everything under .</description></item><item><title>gPTP</title><link>https://linuxptp.nwtime.org/documentation/configs/gptp/</link><pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/gptp/</guid><description>gPTP 802.1AS example configuration containing those attributes which differ from the default configuration. Refer to ptp4l(8) for the complete list of available options.
+[global]
+gmCapable 1
+priority1 248
+priority2 248
+logAnnounceInterval 0
+logSyncInterval -3
+syncReceiptTimeout 3
+neighborPropDelayThresh 800
+min_neighbor_prop_delay -20000000
+assume_two_step 1
+path_trace_enabled 1
+follow_up_info 1
+transportSpecific 0x1
+ptp_dst_mac 01:80:C2:00:00:0E
+network_transport L2
+delay_mechanism P2P</description></item><item><title>Default Configuration</title><link>https://linuxptp.nwtime.org/documentation/configs/default-cfg/</link><pubDate>Fri, 25 May 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/default-cfg/</guid><description>Default Configuration The settings in this file (default.cfg) are assumed unless overridden by a custom configuration. Examples of custom configurations are listed in Example Configurations.
+Refer to ptp4l(8) for the definition and possible values for each configuration option.
+[global]
+#
+# Default Data Set
+#
+twoStepFlag 1
+clientOnly 0
+socket_priority 0
+priority1 128
+priority2 128
+domainNumber 0
+#utc_offset 37
+clockClass 248
+clockAccuracy 0xFE
+offsetScaledLogVariance 0xFFFF
+free_running 0
+freq_est_interval 1
+dscp_event 0
+dscp_general 0
+dataset_comparison ieee1588
+G.</description></item><item><title>End to End Transparent Clock</title><link>https://linuxptp.nwtime.org/documentation/configs/e2e-tc/</link><pubDate>Fri, 25 May 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/e2e-tc/</guid><description>End to End Transparent Clock End to End Transparent Clock example configuration containing those attributes which differ from the default configuration. Refer to ptp4l(8) for the complete list of available options.
+[global]
+priority1 254
+free_running 1
+freq_est_interval 3
+tc_spanning_tree 1
+summary_interval 1
+clock_type E2E_TC
+network_transport L2</description></item><item><title>Peer to Peer Transparent Clock</title><link>https://linuxptp.nwtime.org/documentation/configs/p2p-tc/</link><pubDate>Fri, 25 May 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/p2p-tc/</guid><description>Peer to Peer Transparent Clock Peer to Peer Transparent Clock example configuration containing those attributes which differ from the default configuration. Refer to ptp4l(8) for the complete list of available options.
+[global]
+priority1 254
+free_running 1
+freq_est_interval 3
+tc_spanning_tree 1
+summary_interval 1
+clock_type P2P_TC
+network_transport L2
+delay_mechanism P2P</description></item><item><title>Unicast Master</title><link>https://linuxptp.nwtime.org/documentation/configs/unicast-master/</link><pubDate>Mon, 30 Apr 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/unicast-master/</guid><description>Unicast Master Unicast Master example configuration containing those attributes which differ from the default configuration. Refer to ptp4l(8) for the complete list of available options.
+[global]
+hybrid_e2e 1
+inhibit_multicast_service 1
+unicast_listen 1</description></item><item><title>Unicast Slave</title><link>https://linuxptp.nwtime.org/documentation/configs/unicast-slave/</link><pubDate>Mon, 30 Apr 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/unicast-slave/</guid><description>Unicast Slave Unicast Slave example configuration with contrived master tables.
+This example will not work out of the box!
+Refer to the Unicast Discovery Options section of ptp4l(8) for descriptions of the listed options.
+[global]
+#
+# Request service for sixty seconds.
+#
+unicast_req_duration 60
+#
+# This table has four possible UDPv4 master clocks.
+#
+[unicast_master_table]
+table_id 1
+logQueryInterval 2
+UDPv4 192.168.1.11
+UDPv4 192.168.2.22
+UDPv4 192.168.3.33
+#
+# This table has just one Layer-2 master clock.</description></item></channel></rss>
