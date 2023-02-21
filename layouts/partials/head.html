@@ -1,7 +1,7 @@
 <head>
   <meta charset="UTF-8">
 {{ printf `<meta http-equiv="Content-Security-Policy" content="default-src %s; child-src %s; font-src %s; form-action %s; frame-src %s; img-src %s; object-src %s; style-src %s; script-src %s;">` 
-(delimit .Site.Params.csp.defaultsrc " ") (delimit .Site.Params.csp.childsrc " ") (delimit .Site.Params.csp.fontsrc " ") (delimit .Site.Params.csp.formactionsrc " ") (delimit .Site.Params.csp.framesrc " ") (delimit .Site.Params.csp.imgsrc " ") (delimit .Site.Params.csp.objectsrc " ") (delimit .Site.Params.csp.stylesrc " ") (delimit .Site.Params.csp.scriptsrc " ") | safeHTML }}
+(delimit .Site.Params.csp.defaultsrc " ") (delimit .Site.Params.csp.childsrc " ") (delimit .Site.Params.csp.fontsrc " ") (delimit .Site.Params.csp.formaction " ") (delimit .Site.Params.csp.framesrc " ") (delimit .Site.Params.csp.imgsrc " ") (delimit .Site.Params.csp.objectsrc " ") (delimit .Site.Params.csp.stylesrc " ") (delimit .Site.Params.csp.scriptsrc " ") | safeHTML }}
 {{ if or (.Params.noindex) (eq hugo.Environment "development") }}
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 {{ else }}
