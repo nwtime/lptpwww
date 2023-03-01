@@ -3,8 +3,6 @@ title: Documentation
 description: "Example configuration profiles and listing of man pages for Linux PTP."
 ---
 
-### Documentation
-
 #### Example Configurations
 
 Linux PTP provides the following example configurations (profiles) containing those attributes which differ from the [default configuration](/documentation/default/). Refer to [ptp4l(8)](/documentation/ptp4l/) for the definition and possible values for each configuration option.
