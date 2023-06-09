@@ -1,7 +1,7 @@
 ---
 title: "pmc(8): PTP management client"
 description: "Linux PTP man page for the PTP management client."
-date: 2019-10-12 
+date: 2023-02-16 
 ---
 
 ### pmc(8): PTP management client
@@ -108,10 +108,6 @@ The global section (indicated as `[global]`) sets the global program options as 
 
 #### PORT OPTIONS
 
-<code>**transportSpecific**</code>
-
-: The transport specific field. Must be in the range 0 to 255. The default is 0.
-
 <code>**network_transport**</code>
 
 : Select the network transport. Possible values are `UDPv4`, `UDPv6`, and `L2`. The default is `UDPv4`.
@@ -119,6 +115,10 @@ The global section (indicated as `[global]`) sets the global program options as 
 <code>**ptp_dst_mac**</code>
 
 : The MAC address to which PTP management messages should be sent. Relevant only with L2 transport. The default is `01:1B:19:00:00:00`.
+
+<code>**transportSpecific**</code>
+
+: The transport specific field. Must be in the range 0 to 255. The default is 0.
 
 #### MANAGEMENT IDS
 
@@ -152,7 +152,11 @@ The global section (indicated as `[global]`) sets the global program options as 
 
 * `PORT_DATA_SET_NP`
 
+* `PORT_HWCLOCK_NP`
+
 * `PORT_PROPERTIES_NP`
+
+* `PORT_SERVICE_STATS_NP`
 
 * `PORT_STATS_NP`
 
@@ -169,6 +173,8 @@ The global section (indicated as `[global]`) sets the global program options as 
 * `TIME_STATUS_NP`
 
 * `TRACEABILITY_PROPERTIES`
+
+* `UNICAST_MASTER_TABLE_NP`
 
 * `USER_DESCRIPTION`
 

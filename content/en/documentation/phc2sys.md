@@ -1,7 +1,7 @@
 ---
 title: "phc2sys(8): synchronize two or more clocks"
 description: "Linux PTP man page for synchronizing two or more clocks."
-date: 2021-01-08 
+date: 2023-02-16
 ---
 
 ### phc2sys(8): synchronize two or more clocks
@@ -50,11 +50,11 @@ together with the `-d` option, the source clock is used only to correct the offs
 <code>**-c _device_**</code>
 
 : Specify the time sink by device (e.g. `/dev/ptp1`) or interface (e.g. `eth1`) or
-by  name. The default is `CLOCK_REALTIME` (the system clock). Not compatible with the `-a` option.
+by  name. The default is `CLOCK_REALTIME` (the system clock). Not compatible with the `-a` option. This option may be given up to 128 times.
 
 <code>**-E _servo_**</code>
 
-: Specify which clock servo should be used. Valid values are `pi` for a PI controller, `linreg` for an adaptive controller using linear regression, and `ntpshm` for the NTP SHM reference clock to allow another process to synchronize the local clock. The default is `pi`.
+: Specify which clock servo should be used. Valid values are `pi` for a PI controller, `linreg` for an adaptive controller using linear regression, and `ntpshm` and `refclock_sock` for the NTP SHM and chrony SOCK reference clocks respectively to allow another process to synchronize the local clock. The default is `pi`.
 
 <code>**-P _kp_**</code>
 
@@ -154,9 +154,24 @@ The global section (indicated as `[global]`) sets the program options. This is t
 
 #### FILE OPTIONS
 
+<code>**clock_servo**</code>
+
+: The servo which is used to synchronize the local clock. Valid values are `pi` for a PI controller, `linreg` for an adaptive controller using
+linear regression, `ntpshm` for the NTP SHM reference clock to allow another process to synchronize the local clock (the SHM segment number
+is set to the domain number), and `nullf` for a servo that always dials frequency offset zero (for use in SyncE nodes). The default is `pi`. Same as option `-E` (see above).
+
 <code>**domainNumber**</code>
 
 : Specify the domain number used by `phc2sys`. The default is 0. Same as option `-n` (see above).
+
+<code>**first_step_threshold**</code>
+
+: Specify the step threshold applied only on the first update. It is the maximum offset that is corrected by adjusting clock. It's specified in
+seconds. The value of 0.0 disables stepping on start. The default is 0.00002 (20 microseconds). Same as option `-F` (see above).
+
+<code>**free-running**</code>
+
+: Don't adjust the sink clock if enabled. The default is 0 (disabled).
 
 <code>**kernel_leap**</code>
 
@@ -170,17 +185,37 @@ The maximum logging level of messages which should be printed. The default is 6 
 
 : The tag which is added to all messages printed to the standard output or system log. The default is an empty string (which cannot be set in the configuration file as the option requires an argument). Same as option `-t` (see above).
 
+<code>**ntpshm_segment**</code>
+
+: The number of the SHM segment used by `ntpshm` servo.  The default is 0. Same as option `-M` (see above).
+
+<code>**pi_integral_const**</code>
+
+: Specifies the integral constant of the PI controller. Same as option `-I` (see above).
+
+<code>**pi_proportional_const**</code>
+
+: Specifies the proportional constant of the PI controller. Same as option `-P` (see above).
+
+<code>**refclock_sock_address**</code>
+
+: The address of the UNIX domain socket to be used by the `refclock_sock` servo. The default is `/var/run/refclock.ptp.sock`.
+
 <code>**sanity_freq_limit**</code>
 
 : The maximum allowed frequency offset between uncorrected clock and the system monotonic clock in parts per billion (ppb). This is used as a sanity check of the synchronized clock. When a larger offset is measured, a warning message will be printed and the servo will be reset. When set to 0, the sanity check is disabled. The default is 200000000 (20%). Same as option `-L` (see above).
 
-<code>**clock_servo**</code>
+<code>**step_threshold**</code>
 
-: The servo which is used to synchronize the local clock. Valid values are `pi` for a PI controller, `linreg` for an adaptive controller using linear regression, `ntpshm` for the NTP SHM reference clock to allow another process to synchronize the local clock (the SHM segment number is set to the domain number), and `nullf` for a servo that always dials frequency offset zero (for use in SyncE nodes). The default is `pi`. Same as option `-E` (see above).
+: Specifies the step threshold of the servo. It is the maximum offset that the servo corrects by changing the clock frequency instead of stepping the clock. The clock is stepped on start regardless of the option if the offset is larger than 20 microseconds (unless the `-F` option is used). It's  specified  in seconds. The value of 0.0 disables stepping after the start. The default is 0.0. Same as option `-S` (see above).
 
 <code>**transportSpecific**</code>
 
 : The transport specific field. Must be in the range 0 to 255. The default is 0.
+
+<code>**uds_address**</code>
+
+: Specifies the address of the server's UNIX domain socket. The default is `/var/run/ptp4`. Same as option `-z` (see above).
 
 <code>**use_syslog**</code>
 
@@ -189,30 +224,6 @@ The maximum logging level of messages which should be printed. The default is 6 
 <code>**verbose**</code>
 
 : Print messages to the standard output if enabled.  The default is 0 (disabled). Related to option `-m` (see above).
-
-<code>**pi_proportional_const**</code>
-
-: Specifies the proportional constant of the PI controller. Same as option `-P` (see above).
-
-<code>**pi_integral_const**</code>
-
-: Specifies the integral constant of the PI controller. Same as option `-I` (see above).
-
-<code>**step_threshold**</code>
-
-: Specifies the step threshold of the servo. It is the maximum offset that the servo corrects by changing the clock frequency instead of stepping the clock. The clock is stepped on start regardless of the option if the offset is larger than 20 microseconds (unless the `-F` option is used). It's  specified  in seconds. The value of 0.0 disables stepping after the start. The default is 0.0. Same as option `-S` (see above).
-
-<code>**first_step_threshold**</code>
-
-: Specify the step threshold applied only on the first update. It is the maximum offset that is corrected by adjusting clock. It's specified in seconds. The value of 0.0 disables stepping on start. The default is 0.00002 (20 microseconds). Same as option `-F` (see above).
-
-<code>**ntpshm_segment**</code>
-
-: The number of the SHM segment used by `ntpshm` servo.  The default is 0. Same as option `-M` (see above).
-
-<code>**uds_address**</code>
-
-: Specifies the address of the server's UNIX domain socket. The default is `/var/run/ptp4`. Same as option `-z` (see above).
 
 #### TIME SCALE USAGE
 
@@ -226,32 +237,32 @@ In hardware time stamping mode, `ptp4l` announces use of PTP time scale and PHC 
 
 Synchronize time automatically according to the current `ptp4l` state, synchronizing the system clock to the remote server.
 
-`phc2sys -a -r`
+&emsp;&emsp; `phc2sys -a -r`
 
 Same as above, but when the host becomes the domain server, synchronize time in the domain to its system clock.
 
-`phc2sys -a -rr`
+&emsp;&emsp; `phc2sys -a -rr`
 
 Same as above, in an IEEE 802.1AS domain.
 
-`phc2sys -a -rr --transportSpecific=1`
+&emsp;&emsp; `phc2sys -a -rr --transportSpecific=1`
 
 The host is a domain server, PTP clock is synchronized to system clock and the time offset is obtained from `ptp4l`. `phc2sys` waits for `ptp4l` to get at least one port in server or client mode before starting the synchronization.
 
-`phc2sys -c /dev/ptp0 -s CLOCK_REALTIME -w`
+&emsp;&emsp; `phc2sys -c /dev/ptp0 -s CLOCK_REALTIME -w`
 
 Same as above, time offset is provided on command line and `phc2sys` does not wait for `ptp4l`.
 
-`phc2sys -c /dev/ptp0 -s CLOCK_REALTIME -O 35`
+&emsp;&emsp; `phc2sys -c /dev/ptp0 -s CLOCK_REALTIME -O 37`
 
 The host is in client mode, system clock is synchronized from PTP clock, `phc2sys`
 waits for `ptp4l` and the offset is set automatically.
 
-`phc2sys -s /dev/ptp0 -w`
+&emsp;&emsp; `phc2sys -s /dev/ptp0 -w`
 
 Same as above, PTP clock id is read from the network interface, the offset is provided on command line, `phc2sys` does not wait.
 
-`phc2sys -s eth0 -O -35`
+&emsp;&emsp; `phc2sys -s eth0 -O -37`
 
 #### WARNING
 
