@@ -1,7 +1,7 @@
 ---
 title: Default Configuration
 description: "Linux PTP default configuration file."
-date: 2018-05-25
+date: 2023-05-10
 ---
 
 ### Default Configuration
@@ -54,6 +54,11 @@ BMCA                    ptp
 inhibit_announce        0
 inhibit_delay_req       0
 ignore_source_id        0
+power_profile.2011.grandmasterTimeInaccuracy	-1
+power_profile.2011.networkTimeInaccuracy	-1
+power_profile.2017.totalTimeInaccuracy		-1
+power_profile.grandmasterID			0
+power_profile.version				none
 #
 # Run time options
 #
@@ -91,6 +96,7 @@ first_step_threshold	0.00002
 max_frequency		900000000
 clock_servo		pi
 sanity_freq_limit	200000000
+refclock_sock_address	/var/run/refclock.ptp.sock
 ntpshm_segment		0
 msg_interval_request	0
 servo_num_offset_values 10
@@ -107,7 +113,7 @@ udp6_scope		0x0E
 uds_address		/var/run/ptp4l
 uds_file_mode		0660
 uds_ro_address		/var/run/ptp4lro
-uds_ro_file_mode		0666
+uds_ro_file_mode	0666
 #
 # Default interface options
 #
