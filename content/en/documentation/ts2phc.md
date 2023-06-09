@@ -1,7 +1,7 @@
 ---
 title: "ts2phc(8): Synchronizes one or more PTP Hardware Clocks using external time stamps"
 description: "Man page for ts2phc which synchronizes PTP Hardware Clocks to external time stamp signals."
-date: 2021-07-18 
+date: 2023-02-16 
 ---
 
 ### ts2phc(8): Synchronizes one or more PTP Hardware Clocks using external time stamps
@@ -15,6 +15,10 @@ date: 2021-07-18
 `ts2phc` synchronizes PTP Hardware Clocks (PHC) to external time stamp signals. A single source may be used to distribute time to one or more PHC devices.
 
 #### OPTIONS
+
+<code>**-a**</code>
+
+: Adjust the direction of synchronization automatically. The program determines which PHC should be the reference clock for time distribution and which should be the destinations by querying the port states from the running instance of `ptp4l`. Note that using this option, the PPS signal distribution hierarchy still remains fixed as per the configuration file. This implies that using this option, a PPS source of the PHC kind may become a target clock, and a PPS sink may become a reference clock. Other, non-PHC types of PPS sources (generic, NMEA) cannot become target clocks. Clocks which are not part of `ptp4l`'s list of ports are not synchronized. This option is useful when the `boundary_clock_jbod` option of `ptp4l` is also enabled.
 
 <code>**-c _device|name_)**</code>
 
@@ -42,7 +46,7 @@ date: 2021-07-18
 
 <code>**-s _device|name_**</code>
 
-: Specifies the source of the PPS signal. Use the key word `generic` for an external 1-PPS without ToD information. When using a PHC as the time source, the clock may be identified by its character device (like `/dev/ptp0`) or its associated network interface (like `eth0`). Use the key word `nmea` for an external 1-PPS from a GPS providing ToD information via the RMC NMEA sentence.
+: Specifies the source of the Time of Day (ToD) data. Use the key word `generic` for an external 1-PPS without ToD information. When using a PHC as the time source, the clock may be identified by its character device (like `/dev/ptp0`) or its associated network interface (like `eth0`). Use the key word `nmea` for an external 1-PPS from a GPS providing ToD information via the RMC NMEA sentence.
 
 <code>**-v**</code>
 
@@ -72,7 +76,7 @@ There are two different section types.
 
 <code>**first_step_threshold**</code>
 
-: The maximum offset, specified in seconds, that the servo will correct by changing the clock frequency instead of stepping the clock. This is only applied on the first update. When set to 0.0, the servo will not step the clock on start. The default is 0.00002 (20 microseconds).
+: The maximum offset, specified in seconds, that the servo will correct by changing the clock frequency (phase when using `nullf` servo) instead of stepping the clock. This is only applied on the first update. When set to 0.0, the servo will not step the clock on start. The default is 0.00002 (20 microseconds).
 
 <code>**free_running**</code>
 
@@ -106,9 +110,18 @@ There are two different section types.
 
 : Specifies the serial port and baudrate in bps for character device providing ToD information when using the `nmea` PPS signal source. Note that if the options, `ts2phc.nmea_remote_host` and `ts2phc.nmea_remote_port`, are both specified, then the given remote connection will be used in preference to the configured serial port. The default serial port is `/dev/ttyS0`. The default baudrate is 9600 bps.
 
+<code>**ts2phc.perout_phase**</code>
+
+: Configures the offset between the beginning of the second and the PPS source's rising edge. Available only for the PHC kind of PPS source. The supported range is 0 to 999999999 nanoseconds. The default is 0 nanoseconds, but leaving this option unspecified will not transmit the phase to the kernel, instead PPS will be requested to start at an absolute time equal to the nearest 2nd full second since the start of the program. This should yield the same effect, but may not work with drivers that do not support starting periodic output at an absolute time.
+
 <code>**ts2phc.pulsewidth**</code>
 
-: The expected pulse width of the external PPS signal in nanoseconds. When `ts2phc.extts_polarity` is `both`, the given pulse width is used to detect and discard the time stamp of the unwanted edge. The supported range is 1000000 to 990000000 nanoseconds. The default is 500000000 nanoseconds.
+: The pulse width of the external PPS signal in nanoseconds. When `ts2phc.extts_polarity` is `both`, the given pulse width is used to detect and discard the time stamp of the unwanted edge. In case the PPS source is of the PHC kind, an attempt is made to request the kernel to actually
+emit using this pulse width. If this fails, it is assumed that the specified pulse width is correct, and the value is used in the edge rejection algorithm. The supported range is 1000000 to 990000000 nanoseconds. The default is 500000000 nanoseconds.
+
+<code>**ts2phc.tod_source**</code>
+
+: Specifies the source of Time of Day (ToD) data. Use the key word `generic` for an external 1-PPS without ToD information. When using a PHC as the time source, the clock may be identified by its character device (like `/dev/ptp0`) or its associated network interface (like `eth0`). Use the key word `nmea` for an external 1-PPS from a GPS providing ToD information via the RMC NMEA sentence. The default is `generic`.
 
 <code>**use_syslog**</code>
 
