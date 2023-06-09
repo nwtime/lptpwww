@@ -53,3 +53,4 @@ synchronized to each other in order to form a Transparent Clock.
 * [ptp4l(8)](/documentation/ptp4l/): PTP Boundary/Ordinary/Transparent Clock
 * [timemaster(8)](/documentation/timemaster/): run NTP with PTP as reference clocks
 * [ts2phc(8)](/documentation/ts2phc/): Synchronizes one or more PTP Hardware Clocks using external time stamps
+* [tz2alt](/documentation/tz2alt/): Monitors daylight savings time changes and publishes them to PTP stack.

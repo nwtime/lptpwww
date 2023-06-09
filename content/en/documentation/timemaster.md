@@ -1,7 +1,7 @@
 ---
 title: "timemaster(8): run NTP with PTP as reference clocks"
 description: "Linux PTP man page for timemaster, a program used to synchronize the system clock to NTP and PTP time sources."
-date: 2022-03-08 
+date: 2022-02-06 
 ---
 
 ### timemaster(8): run NTP with PTP as reference clocks
@@ -12,9 +12,9 @@ date: 2022-03-08
 
 #### DESCRIPTION
 
-`timemaster` is a program that uses `ptp4l` and `phc2sys` in combination with `chronyd` or `ntpd` to synchronize the system clock to NTP and PTP time sources. The PTP time is provided by `phc2sys` and `ptp4l` via SHM reference clocks to`chronyd`/`ntpd`, which can compare all time sources and use the best sources to synchronize the system clock.
+`timemaster` is a program that uses `ptp4l` and `phc2sys` in combination with `chronyd` or `ntpd` to synchronize the system clock to NTP and PTP time sources. The PTP time is provided by `phc2sys` and `ptp4l` via SOCK reference clock to `chronyd` or SHM reference clock to `ntpd`, which can compare all time sources and use the best sources to synchronize the system clock.
 
-On start, `timemaster` reads a configuration file that specifies the NTP and PTP time sources, checks which network interfaces have and share a PTP hardware clock (PHC), generates configuration files for `ptp4l` and `chronyd`/`ntpd`, and start the `ptp4l`, `phc2sys`, and `chronyd`/`ntpd` processes as needed. Then, it waits for a signal to kill the processes, remove the generated configuration files and exit.
+On start, `timemaster` reads a configuration file that specifies the NTP and PTP time sources, checks which network interfaces have and share a PTP hardware clock (PHC), generates configuration files for `ptp4l` and `chronyd`/`ntpd`, and starts the `ptp4l`, `phc2sys`, and `chronyd`/`ntpd` processes as needed. Then, it waits for a signal to kill the processes, removes the generated configuration files, and exits.
 
 #### OPTIONS
 
@@ -79,8 +79,7 @@ Sections that can used in the configuration file and options that can be set in 
 The `ntp_server` section specifies an NTP server that should be used as a time source. The address of the server is included in the name of the section.
 
 <code>**minpoll**</code>
-
-: <code>**maxpoll**</code>
+<code>**maxpoll**</code>
 
 : Specify the minimum and maximum NTP polling interval as powers of two in seconds. The default values are 6 (64 seconds) and 10 (1024 seconds) respectively. Shorter polling intervals usually improve the accuracy significantly, but they should be used only when allowed by the operators of the NTP service (public NTP servers generally don't allow too frequent queries). If the NTP server is located on the same LAN, polling intervals around 4 (16 seconds) might give best accuracy.
 
@@ -102,11 +101,11 @@ The `ptp_domain` section specifies a PTP domain that should be used as a time so
 
 <code>**ntp_poll**</code>
 
-: Specify the polling interval of the NTP SHM reference clock reading samples from `ptp4l` or `phc2sys`. It's specified as a power of two in seconds. The default value is 2 (4 seconds).
+: Specify the polling interval of the SOCK/SHM reference clock reading samples from `ptp4l` or `phc2sys`. It's specified as a power of two in seconds. The default value is 2 (4 seconds).
 
 <code>**phc2sys_poll**</code>
 
-: Specify the polling interval used by `phc2sys` to read a PTP clock synchronized by `ptp4l` and update the SHM sample for `chronyd`/`ntpd`. It's specified as a power of two in seconds. The default value is 0 (1 second).
+: Specify the polling interval used by `phc2sys` to read a PTP clock synchronized by `ptp4l` and update the SOCK/SHM sample for `chronyd`/`ntpd`. It's specified as a power of two in seconds. The default value is 0 (1 second).
 
 <code>**delay**</code>
 
@@ -134,7 +133,7 @@ The `ptp_domain` section specifies a PTP domain that should be used as a time so
 
 Settings specified in this section are copied directly to the configuration file generated for `chronyd`. If this section is not present in the `timemaster` configuration file, the following setting will be added:
 
-`makestep 1 3`
+&emsp;&emsp; `makestep 1 3`
 
 This configures `chronyd` to step the system clock in the first three updates if the offset is larger than 1 second.
 
@@ -209,8 +208,10 @@ A minimal configuration file using one NTP source and two PTP sources would be:
 
 <pre>
 [ntp_server 10.1.1.1]
+
 [ptp_domain 0]
 interfaces eth0
+
 [ptp_domain 1]
 interfaces eth1
 </pre>
@@ -223,6 +224,7 @@ minpoll 3
 maxpoll 4
 iburst 1
 ntp_options key 12
+
 [ptp_domain 0]
 interfaces eth0 eth1
 ntp_poll 0
@@ -231,38 +233,46 @@ delay 10e-6
 ntp_options prefer
 ptp4l_option clock_servo linreg
 ptp4l_option delay_mechanism P2P
+
 [timemaster]
 ntp_program chronyd
 rundir /var/run/timemaster
 first_shm_segment 1
 restart_processes 0
 use_vclocks 0
+
 [chronyd]
 path /usr/sbin/chronyd
 options
+
 [chrony.conf]
 makestep 1 3
 logchange 0.5
 rtcsync
 driftfile /var/lib/chrony/drift
+
 [ntpd]
 path /usr/sbin/ntpd
 options -u ntp:ntp
+
 [ntp.conf]
 restrict default nomodify notrap nopeer noquery
 restrict 127.0.0.1
 restrict ::1
 driftfile /var/lib/ntp/drift
+
 [phc2sys]
 path /usr/sbin/phc2sys
 options -l 5
+
 [ptp4l]
 path /usr/sbin/ptp4l
 options
+
 [ptp4l.conf]
 logging_level 5
 </pre>
 
 #### SEE ALSO
 
-chronyd(8), ntpd(8), [phc2sys(8)](/documentation/phc2sys/), [ptp4l(8)](/documentation/ptp4l/)
+[chronyd(8)](https://chrony.tuxfamily.org/doc/3.5/chronyd.html), [ntpd(8)](https://doc.ntp.org/current-stable/ntpd/), [phc2sys(8)](/documentation/phc2sys/), [ptp4l(8)](/documentation/ptp4l/)
