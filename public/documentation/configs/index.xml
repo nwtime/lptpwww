@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Configs on Linux PTP Project</title><link>https://linuxptp.nwtime.org/documentation/configs/</link><description>Recent content in Configs on Linux PTP Project</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 21 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://linuxptp.nwtime.org/documentation/configs/index.xml" rel="self" type="application/rss+xml"/><item><title>G.8265.1</title><link>https://linuxptp.nwtime.org/documentation/configs/g-8265-1/</link><pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/g-8265-1/</guid><description>G.8265.1 The ITU Telecommunication Standardization Sector provides links to the current G.8265.1 Recommendations.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Configs on Linux PTP Project</title><link>https://linuxptp.nwtime.org/documentation/configs/</link><description>Recent content in Configs on Linux PTP Project</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 10 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://linuxptp.nwtime.org/documentation/configs/index.xml" rel="self" type="application/rss+xml"/><item><title>Default Configuration</title><link>https://linuxptp.nwtime.org/documentation/configs/default-cfg/</link><pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/default-cfg/</guid><description>Default Configuration The settings in this file (default.cfg) are assumed unless overridden by a custom configuration. Examples of custom configurations are listed in Example Configurations.
+Refer to ptp4l(8) for the definition and possible values for each configuration option.
+[global]
+#
+# Default Data Set
+#
+twoStepFlag 1
+clientOnly 0
+socket_priority 0
+priority1 128
+priority2 128
+domainNumber 0
+#utc_offset 37
+clockClass 248
+clockAccuracy 0xFE
+offsetScaledLogVariance 0xFFFF
+free_running 0
+freq_est_interval 1
+dscp_event 0
+dscp_general 0
+dataset_comparison ieee1588
+G.</description></item><item><title>G.8265.1</title><link>https://linuxptp.nwtime.org/documentation/configs/g-8265-1/</link><pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/g-8265-1/</guid><description>G.8265.1 The ITU Telecommunication Standardization Sector provides links to the current G.8265.1 Recommendations.
 Telecom G.8265.1 example configuration containing those attributes which either differ from the default configuration or are relevant to the profile. Refer to ptp4l(8) for the complete list of available options.
 [global]
 serverOnly 0
@@ -134,28 +155,7 @@ follow_up_info 1
 transportSpecific 0x1
 ptp_dst_mac 01:80:C2:00:00:0E
 network_transport L2
-delay_mechanism P2P</description></item><item><title>Default Configuration</title><link>https://linuxptp.nwtime.org/documentation/configs/default-cfg/</link><pubDate>Fri, 25 May 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/default-cfg/</guid><description>Default Configuration The settings in this file (default.cfg) are assumed unless overridden by a custom configuration. Examples of custom configurations are listed in Example Configurations.
-Refer to ptp4l(8) for the definition and possible values for each configuration option.
-[global]
-#
-# Default Data Set
-#
-twoStepFlag 1
-clientOnly 0
-socket_priority 0
-priority1 128
-priority2 128
-domainNumber 0
-#utc_offset 37
-clockClass 248
-clockAccuracy 0xFE
-offsetScaledLogVariance 0xFFFF
-free_running 0
-freq_est_interval 1
-dscp_event 0
-dscp_general 0
-dataset_comparison ieee1588
-G.</description></item><item><title>End to End Transparent Clock</title><link>https://linuxptp.nwtime.org/documentation/configs/e2e-tc/</link><pubDate>Fri, 25 May 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/e2e-tc/</guid><description>End to End Transparent Clock End to End Transparent Clock example configuration containing those attributes which differ from the default configuration. Refer to ptp4l(8) for the complete list of available options.
+delay_mechanism P2P</description></item><item><title>End to End Transparent Clock</title><link>https://linuxptp.nwtime.org/documentation/configs/e2e-tc/</link><pubDate>Fri, 25 May 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/e2e-tc/</guid><description>End to End Transparent Clock End to End Transparent Clock example configuration containing those attributes which differ from the default configuration. Refer to ptp4l(8) for the complete list of available options.
 [global]
 priority1 254
 free_running 1

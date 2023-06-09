@@ -1,6 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Welcome to The Linux PTP Project on Linux PTP Project</title><link>https://linuxptp.nwtime.org/</link><description>Recent content in Welcome to The Linux PTP Project on Linux PTP Project</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sat, 14 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://linuxptp.nwtime.org/index.xml" rel="self" type="application/rss+xml"/><item><title>ptp4l(8): PTP Boundary/Ordinary/Transparent Clock</title><link>https://linuxptp.nwtime.org/documentation/ptp4l/</link><pubDate>Sat, 14 May 2022 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/ptp4l/</guid><description>ptp4l(8): PTP Boundary/Ordinary/Transparent Clock SYNOPSIS ptp4l [ -AEP246HSLmqsv ] [ -f config ] [ -p phc-device ] [ -l print-level ] [ -i interface ] [ long-options ] &amp;hellip;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Welcome to The Linux PTP Project on Linux PTP Project</title><link>https://linuxptp.nwtime.org/</link><description>Recent content in Welcome to The Linux PTP Project on Linux PTP Project</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 10 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://linuxptp.nwtime.org/index.xml" rel="self" type="application/rss+xml"/><item><title>Default Configuration</title><link>https://linuxptp.nwtime.org/documentation/configs/default-cfg/</link><pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/default-cfg/</guid><description>Default Configuration The settings in this file (default.cfg) are assumed unless overridden by a custom configuration. Examples of custom configurations are listed in Example Configurations.
+Refer to ptp4l(8) for the definition and possible values for each configuration option.
+[global]
+#
+# Default Data Set
+#
+twoStepFlag 1
+clientOnly 0
+socket_priority 0
+priority1 128
+priority2 128
+domainNumber 0
+#utc_offset 37
+clockClass 248
+clockAccuracy 0xFE
+offsetScaledLogVariance 0xFFFF
+free_running 0
+freq_est_interval 1
+dscp_event 0
+dscp_general 0
+dataset_comparison ieee1588
+G.</description></item><item><title>ptp4l(8): PTP Boundary/Ordinary/Transparent Clock</title><link>https://linuxptp.nwtime.org/documentation/ptp4l/</link><pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/ptp4l/</guid><description>ptp4l(8): PTP Boundary/Ordinary/Transparent Clock SYNOPSIS ptp4l [ -AEP246HSLmqsv ] [ -f config ] [ -p phc-device ] [ -l print-level ] [ -i interface ] [ long-options ] &amp;hellip;
 DESCRIPTION ptp4l is an implementation of the Precision Time Protocol (PTP) according to IEEE standard 1588 for Linux. It implements Boundary Clock (BC), Ordinary Clock (OC), and Transparent Clock (TC).
-OPTIONS -A Select the delay mechanism automatically. Start with E2E and switch to P2P when a peer delay request is received.</description></item><item><title>timemaster(8): run NTP with PTP as reference clocks</title><link>https://linuxptp.nwtime.org/documentation/timemaster/</link><pubDate>Tue, 08 Mar 2022 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/timemaster/</guid><description>timemaster(8): run NTP with PTP as reference clocks SYNOPSIS timemaster [ -nmqv ] [ -l print-level ] -f file
+OPTIONS -A Select the delay mechanism automatically. Start with E2E and switch to P2P when a peer delay request is received.</description></item><item><title>phc2sys(8): synchronize two or more clocks</title><link>https://linuxptp.nwtime.org/documentation/phc2sys/</link><pubDate>Thu, 16 Feb 2023 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/phc2sys/</guid><description>phc2sys(8): synchronize two or more clocks SYNOPSIS phc2sys -a [ -r ] [ -r ] [ -f config-file ] [ options ] [ long-options ]
+phc2sys [ -f config-file ] [ -d pps-device ] [ -s device ] [ -c device ] [ -O offset ] [ -w ] [ options ] [ long-options ] &amp;hellip;
+DESCRIPTION phc2sys is a program which synchronizes two or more clocks in the system. Typically, it is used to synchronize the system clock to a PTP hardware clock (PHC), which itself is synchronized by the ptp4l(8) program.</description></item><item><title>pmc(8): PTP management client</title><link>https://linuxptp.nwtime.org/documentation/pmc/</link><pubDate>Thu, 16 Feb 2023 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/pmc/</guid><description>pmc(8): PTP management client SYNOPSIS pmc [ -f config-file ] [ -2 | -4 | -6 | -u ] [ -b boundary-hops ] [ -d domain-number ] [ -i interface ] [ -s uds-address ] [ -t transport-specific-field ] [ long-options ] [ -v ] [ -z ] [ command ] &amp;hellip;
+DESCRIPTION pmc is a program which implements a PTP management client according to IEEE standard 1588. The program reads from the standard input or from the command line actions specified by name and management ID, sends them over the selected transport and prints any received replies.</description></item><item><title>timemaster(8): run NTP with PTP as reference clocks</title><link>https://linuxptp.nwtime.org/documentation/timemaster/</link><pubDate>Tue, 08 Mar 2022 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/timemaster/</guid><description>timemaster(8): run NTP with PTP as reference clocks SYNOPSIS timemaster [ -nmqv ] [ -l print-level ] -f file
 DESCRIPTION timemaster is a program that uses ptp4l and phc2sys in combination with chronyd or ntpd to synchronize the system clock to NTP and PTP time sources. The PTP time is provided by phc2sys and ptp4l via SHM reference clocks tochronyd/ntpd, which can compare all time sources and use the best sources to synchronize the system clock.</description></item><item><title>ts2phc(8): Synchronizes one or more PTP Hardware Clocks using external time stamps</title><link>https://linuxptp.nwtime.org/documentation/ts2phc/</link><pubDate>Sun, 18 Jul 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/ts2phc/</guid><description>ts2phc(8): Synchronizes one or more PTP Hardware Clocks using external time stamps SYNOPSIS ts2phc [ -hmqv ] [ -c device|name ] [ -f config ] [ -l print-level ] [ -s device|name ] [ long-options ] &amp;hellip;
 DESCRIPTION ts2phc synchronizes PTP Hardware Clocks (PHC) to external time stamp signals. A single source may be used to distribute time to one or more PHC devices.
 OPTIONS -c device|name) Specifies a PHC to be synchronized.</description></item><item><title>G.8265.1</title><link>https://linuxptp.nwtime.org/documentation/configs/g-8265-1/</link><pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/g-8265-1/</guid><description>G.8265.1 The ITU Telecommunication Standardization Sector provides links to the current G.8265.1 Recommendations.
@@ -75,9 +99,7 @@ BMCA noop
 serverOnly 1
 inhibit_announce 1
 asCapable true
-inhibit_delay_req 1</description></item><item><title>phc2sys(8): synchronize two or more clocks</title><link>https://linuxptp.nwtime.org/documentation/phc2sys/</link><pubDate>Fri, 08 Jan 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/phc2sys/</guid><description>phc2sys(8): synchronize two or more clocks SYNOPSIS phc2sys -a [ -r ] [ -r ] [ -f config-file ] [ options ] [ long-options ]
-phc2sys [ -f config-file ] [ -d pps-device ] [ -s device ] [ -c device ] [ -O offset ] [ -w ] [ options ] [ long-options ] &amp;hellip;
-DESCRIPTION phc2sys is a program which synchronizes two or more clocks in the system. Typically, it is used to synchronize the system clock to a PTP hardware clock (PHC), which itself is synchronized by the ptp4l(8) program.</description></item><item><title>Automotive Slave</title><link>https://linuxptp.nwtime.org/documentation/configs/automotive-slave/</link><pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/automotive-slave/</guid><description>Automotive Slave Automotive profile example configuration for clients containing those attributes which differ from the default configuration. Refer to ptp4l(8) for the complete list of available options.
+inhibit_delay_req 1</description></item><item><title>Automotive Slave</title><link>https://linuxptp.nwtime.org/documentation/configs/automotive-slave/</link><pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/automotive-slave/</guid><description>Automotive Slave Automotive profile example configuration for clients containing those attributes which differ from the default configuration. Refer to ptp4l(8) for the complete list of available options.
 [global]
 #
 # Options carried over from gPTP.
@@ -113,8 +135,7 @@ servo_offset_threshold 30
 servo_num_offset_values 10</description></item><item><title>phc_ctl(8): directly control PHC device clock</title><link>https://linuxptp.nwtime.org/documentation/phc_ctl/</link><pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/phc_ctl/</guid><description>phc_ctl(8): directly control PHC device clock SYNOPSIS phc_ctl [ options ] &amp;lt;device&amp;gt; [ commands ]
 DESCRIPTION phc_ctl is a program which can be used to directly control a PHC clock device. Typically, it is used for debugging purposes, and has little use for general control of the device. For general control of PHC clock devices, phc2sys(8) should be preferred.
 &amp;lt;device&amp;gt; may be either CLOCK_REALTIME, any /dev/ptpX device, or any ethernet device which supports ethtool&amp;rsquo;s get_ts_info ioctl.</description></item><item><title>ts2phc Transparent Clock Example</title><link>https://linuxptp.nwtime.org/documentation/configs/ts2phc-tc/</link><pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/ts2phc-tc/</guid><description>ts2phc Transparent Clock Example This example shows ts2phc keeping a group of three Intel i210 cards synchronized to each other in order to form a Transparent Clock. The cards are configured to use their SDP0 pins connected in hardware. Here eth3 and eth4 will be slaved to eth6.
-Important! The polarity is set to both because the i210 always time stamps both the rising and the falling edges of the input signal.</description></item><item><title>pmc(8): PTP management client</title><link>https://linuxptp.nwtime.org/documentation/pmc/</link><pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/pmc/</guid><description>pmc(8): PTP management client SYNOPSIS pmc [ -f config-file ] [ -2 | -4 | -6 | -u ] [ -b boundary-hops ] [ -d domain-number ] [ -i interface ] [ -s uds-address ] [ -t transport-specific-field ] [ long-options ] [ -v ] [ -z ] [ command ] &amp;hellip;
-DESCRIPTION pmc is a program which implements a PTP management client according to IEEE standard 1588. The program reads from the standard input or from the command line actions specified by name and management ID, sends them over the selected transport and prints any received replies.</description></item><item><title>Generic ts2phc Example</title><link>https://linuxptp.nwtime.org/documentation/configs/ts2phc-generic/</link><pubDate>Sun, 07 Jul 2019 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/ts2phc-generic/</guid><description>Generic ts2phc Example This example uses a PPS signal from a GPS receiver as an input to the SDP0 pin of an Intel i210 card. The pulse from the receiver has a width of 100 milliseconds.
+Important! The polarity is set to both because the i210 always time stamps both the rising and the falling edges of the input signal.</description></item><item><title>Generic ts2phc Example</title><link>https://linuxptp.nwtime.org/documentation/configs/ts2phc-generic/</link><pubDate>Sun, 07 Jul 2019 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/ts2phc-generic/</guid><description>Generic ts2phc Example This example uses a PPS signal from a GPS receiver as an input to the SDP0 pin of an Intel i210 card. The pulse from the receiver has a width of 100 milliseconds.
 Important! The polarity is set to both because the i210 always time stamps both the rising and the falling edges of the input signal.
 Refer to ts2phc(8) for more information about the ts2phc options.</description></item><item><title>nsm(8): NetSync Monitor client</title><link>https://linuxptp.nwtime.org/documentation/nsm/</link><pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/nsm/</guid><description>nsm(8): NetSync Monitor client SYNOPSIS nsm [ -f config ] [ -i interface ] [ long-options ] [ command ] &amp;hellip;
 DESCRIPTION nsm is a program which implements a NetSync Monitor (NSM) client. NSM is an extension to the Precision Time Protocol (PTP), which enables a client to measure the offset of its clock against any PTP clock in the network which supports NSM. It uses unicast messages, but unlike PTP in the unicast mode it does not require the server to keep any state specific to the client.</description></item><item><title>snmpd.conf</title><link>https://linuxptp.nwtime.org/documentation/configs/snmpd-conf/</link><pubDate>Tue, 21 Aug 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/snmpd-conf/</guid><description>snmpd.conf Linux PTP parameters for snmpd.conf.
@@ -145,28 +166,7 @@ follow_up_info 1
 transportSpecific 0x1
 ptp_dst_mac 01:80:C2:00:00:0E
 network_transport L2
-delay_mechanism P2P</description></item><item><title>Default Configuration</title><link>https://linuxptp.nwtime.org/documentation/configs/default-cfg/</link><pubDate>Fri, 25 May 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/default-cfg/</guid><description>Default Configuration The settings in this file (default.cfg) are assumed unless overridden by a custom configuration. Examples of custom configurations are listed in Example Configurations.
-Refer to ptp4l(8) for the definition and possible values for each configuration option.
-[global]
-#
-# Default Data Set
-#
-twoStepFlag 1
-clientOnly 0
-socket_priority 0
-priority1 128
-priority2 128
-domainNumber 0
-#utc_offset 37
-clockClass 248
-clockAccuracy 0xFE
-offsetScaledLogVariance 0xFFFF
-free_running 0
-freq_est_interval 1
-dscp_event 0
-dscp_general 0
-dataset_comparison ieee1588
-G.</description></item><item><title>End to End Transparent Clock</title><link>https://linuxptp.nwtime.org/documentation/configs/e2e-tc/</link><pubDate>Fri, 25 May 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/e2e-tc/</guid><description>End to End Transparent Clock End to End Transparent Clock example configuration containing those attributes which differ from the default configuration. Refer to ptp4l(8) for the complete list of available options.
+delay_mechanism P2P</description></item><item><title>End to End Transparent Clock</title><link>https://linuxptp.nwtime.org/documentation/configs/e2e-tc/</link><pubDate>Fri, 25 May 2018 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/e2e-tc/</guid><description>End to End Transparent Clock End to End Transparent Clock example configuration containing those attributes which differ from the default configuration. Refer to ptp4l(8) for the complete list of available options.
 [global]
 priority1 254
 free_running 1
