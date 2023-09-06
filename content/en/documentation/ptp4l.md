@@ -620,6 +620,32 @@ When `ptp4l` acts as the domain server, it either uses the PTP or the UTC time s
 When `ptp4l` is the domain server using hardware time stamping, it is up to `phc2sys` to maintain the correct offset between UTC and PTP times. See the 
 [phc2sys(8)](/documentation/phc2sys/) manual page for more details.
 
+#### KTHREAD PRIORITY
+
+In case of following log,
+
+`timed out while polling for tx timestamp increasing tx_timestamp_timeout or increasing kworker priority may correct this issue, but a driver bug likely causes it`
+
+one possible cause is that the kworker which processes timestamps is being starved.  The system admin might try manually increasing the priority of the kworker.
+
+Many device drivers use kworker threads created by the PTP stack. Such kworkers are named:
+
+`ptp<decimal number of clock>`
+
+The system admin can manually bump the priority of the kworker process using `chrt`.
+
+Example:
+
+`pgrep -f "ptp[0-9]+" | xargs -I {} sudo chrt -f --pid 75 {}`
+
+Intel ice driver may create multiple kworkers for one physical NIC and names those processes differently.
+
+Example for Intel E810 card:
+
+`pgrep -f ice-ptp | xargs -I {} sudo chrt -f --pid 75 {}`
+
+Assigning priority needs careful consideration as assigning too high priority to any task might make system unstable.
+
 #### SEE ALSO
 
 [pmc(8)](/documentation/pmc/), [phc2sys(8)](/documentation/phc2sys/)

@@ -102,7 +102,7 @@ by  name. The default is `CLOCK_REALTIME` (the system clock). Not compatible wit
 
 <code>**-n _domain-number_**</code>
 
-: Specify the domain number used by `ptp4l`. The default is 0.
+: Specify the domain number used by `ptp4l`. This option can be used up to 16 times to specify different domain numbers for different sockets specified by the `-z` option. The domain numbers are assigned according to the order of the options on the command line. The default is 0.
 
 <code>**-x**</code>
 
@@ -110,7 +110,7 @@ by  name. The default is `CLOCK_REALTIME` (the system clock). Not compatible wit
 
 <code>**-z _uds-address_**</code>
 
-: Specifies the address of the server's UNIX domain socket. The default is `/var/run/ptp4l`.
+: Specifies the address of the server's UNIX domain socket. This option can be used up to 16 times in the automatic mode to synchronize clocks between multiple `ptp4l` instances. The default is `/var/run/ptp4l`.
 
 <code>**-l _print-level_**</code>
 

@@ -68,7 +68,7 @@ images = ["/images/featured.webp"]
 [params.links]
 [[params.links.user]]
 	name = "Mailing lists"
-	url = "https://sourceforge.net/projects/linuxptp/lists/linuxptp-users"
+	url = "https://lists.nwtime.org/archive/linuxptp-users"
 	icon = "/images/icons/envelope.svg"
         desc = "Discussion and help from your fellow users"
 [[params.links.user]]
