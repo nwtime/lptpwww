@@ -26,9 +26,9 @@ description: "Instructions for submitting a patch to the Linux PTP Project."
    `Signed-off-by: Random J Developer <random@developer.example.org>`
 
 5. Finally, send your patches via email to the [linuxptp-devel mailing
-   list](https://sourceforge.net/projects/linuxptp/lists/linuxptp-devel), where they will be reviewed, and eventually be included in the
+   list](https://lists.nwtime.org/sympa/info/linuxptp-devel), where they will be reviewed, and eventually be included in the
    official code base.
 
-   `git send-email --to linuxptp-devel@lists.sourceforge.net origin/master`
+   `git send-email --to linuxptp-devel@lists.nwtime.org origin/master`
 
 &nbsp; 
