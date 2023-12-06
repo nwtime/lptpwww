@@ -183,7 +183,7 @@ The maximum logging level of messages which should be printed. The default is 6 
 
 <code>**message_tag**</code>
 
-: The tag which is added to all messages printed to the standard output or system log. The default is an empty string (which cannot be set in the configuration file as the option requires an argument). Same as option `-t` (see above).
+: The tag which is added to all messages printed to the standard output or system log.  If the tag contains the string `"{level}"`, it will be replaced with the log level of the message as a number.  The default is an empty string (which cannot be set in the configuration file as the option requires an argument). Same as option `-t` (see above).
 
 <code>**ntpshm_segment**</code>
 
