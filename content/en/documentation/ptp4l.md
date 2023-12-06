@@ -426,7 +426,7 @@ message.  The default is 0 meaning unused.
 
 <code>**message_tag**</code>
 
-: The tag which is added to all messages printed to the standard output or system log. The default is an empty string (which cannot be set in the configuration file as the option requires an argument).
+: The tag which is added to all messages printed to the standard output or system log. If the tag contains the string `"{level}"`, it will be replaced with the log level of the message as a number. The default is an empty string (which cannot be set in the configuration file as the option requires an argument).
 
 <code>**msg_interval_request**</code>
 
@@ -488,6 +488,10 @@ The default value of `msg_interval_request` is 0 (disabled).
 <code>**productDescription**</code>
 
 : The product description string. Allowed values must be of the form `manufacturerName;modelNumber;instanceIdentifier` and contain at most 64 utf8 symbols. The default is `;;`.
+
+<code>**ptp_minor_version**</code>
+
+: This option sets the `minorVersionPTP` in the common PTP message header. The default is `1`.
 
 <code>**refclock_sock_address**</code>
 

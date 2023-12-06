@@ -58,6 +58,9 @@ date: 2020-06-15
 
 : Adjust the frequency of the PHC clock by the specified parts per billion. If no argument is provided, it will attempt to read the current frequency and report it.
 
+<code>**phase _seconds_**</code>
+: Pass an amount in seconds to the PHC clock's phase control keyword. This argument is required.
+
 <code>**cmp**</code>
 
 : Compare the PHC clock device to `CLOCK_REALTIME`, using the best method available.

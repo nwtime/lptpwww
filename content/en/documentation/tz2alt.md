@@ -74,8 +74,8 @@ causes the program to use a hard coded table that reflects the known leap second
 
 <code>**message_tag**</code>
 
-: The tag which is added to all messages printed to the standard output or system log.  The default is an empty string (which cannot be set in
-the configuration file as the option requires an argument).
+: The tag which is added to all messages printed to the standard output or system log. If the tag contains the string `"{level}"`, it will be replaced
+with the log level of the message as a number.  The default is an empty string (which cannot be set in the configuration file as the option requires an argument).
 
 <code>**transportSpecific**</code>
 
