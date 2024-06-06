@@ -112,6 +112,14 @@ There are three different section types.
 
 #### PORT OPTIONS
 
+<code>**active_key_id**</code>
+
+: Used in conjunction with `spp` and `sa_file` directives to specify which key from the `spp` defined Security Association should be used for outbound icv calculations. All Security Assocations are read from the file specified by `sa_file`. Requires `spp` and `sa_file` directives. Must be in the range of 1 to 2<sup>^32</sup>-1, inclusive. The default is 0 (disabled).
+
+<code>**allowedLostResponses**</code>
+
+: The number of missed peer delay responses before the `asCapable` variable is reset. The default is 3.
+
 <code>**announceReceiptTimeout**</code>
 
 : The number of missed Announce messages before the last Announce messages expires. The default is 3.
@@ -119,6 +127,27 @@ There are three different section types.
 <code>**boundary_clock_jbod**</code>
 
 : When running as a boundary clock (that is, when more than one network interface is configured), `ptp4l` performs a sanity check to make sure that all of the ports share the same hardware clock device. This option allows `ptp4l` to work as a boundary clock using "just a bunch of devices" that are not synchronized to each other. For this mode, the collection of clocks must be synchronized by an external program, for example [phc2sys(8)](/documentation/phc2sys/) in `automatic` mode. The default is 0 (disabled).
+
+<code>**cmlds.client_address**</code>
+
+: Specifies the source address for the UNIX domain socket that receives peer delay measurement when using the `COMMON_P2P` delay mechanism. The default is `/var/run/cmlds_client`.
+
+<code>**cmlds.domainNumber**</code>
+
+: Specifies the domainNumber message field for communications with the local Common Mean Link Delay Service, used with the `COMMON_P2P` delay mechanism. The default is 0.
+
+<code>**cmlds.majorSdoId**</code>
+
+: Specifies the transportSpecific message field for communications with the local Common Mean Link Delay Service, used with the `COMMON_P2P` delay mechanism. The default is 2.
+
+<code>**cmlds.port**</code>
+
+: Specifies the port number of local Common Mean Link Delay Service from which to accept delay measurements.  The range of valid port numbers
+is one to 65535, but the special value zero configures the port number of the port requesting the measurements. The default is 0, meaning the requesting port number.
+
+<code>**cmlds.server_address**</code>
+
+: Specifies the UNIX domain socket address of the local Common Mean Link Delay Service, for use with the `COMMON_P2P` delay mechanism. The default is `/var/run/cmlds_server`.
 
 <code>**delayAsymmetry**</code>
 
@@ -260,6 +289,21 @@ message.  The default is 0 meaning unused.
 : Specifies the power profile version to be used.  Valid values are `none`, `2011`, or `2017`. This value may be changed dynamically using the
 `POWER_PROFILE_SETTINGS_NP` management message. The default is `none`.
 
+<code>**ptp_dst_ipv4**</code>
+: The IPv4 address to which PTP messages should be sent. Relevant only with UDPv4 transport. The default is 224.0.1.129.
+
+<code>**p2p_dst_ipv4**</code>
+
+: The IPv4 address to which peer delay messages should be sent. Relevant only with UDPv4 transport. The default is 224.0.0.107.
+
+<code>**ptp_dst_ipv6**</code>
+
+: The IPv6 address to which PTP messages should be sent. The second byte of the address is substituted with `udp6_scope`. Relevant only with UDPv6 transport. The default is FF0E:0:0:0:0:0:0:181.
+
+<code>**p2p_dst_ipv6**</code>
+
+: The IPv6 address to which peer delay messages should be sent. Relevant only with UDPv6 transport. The default is FF02:0:0:0:0:0:0:6B.
+
 <code>**ptp_dst_mac**</code>
 
 : The MAC address to which PTP messages should be sent. Relevant only with `L2` transport. The default is `01:1B:19:00:00:00`.
@@ -271,6 +315,10 @@ message.  The default is 0 meaning unused.
 <code>**serverOnly**</code>
 
 : Setting this option to `1` prevents the port from entering the client state. In addition, the local clock will ignore Announce messages received on this port. This option's intended use is to support the Telecom Profiles according to ITU-T G.8265.1, G.8275.1, and G.8275.2. The default value is `0` or false.
+
+<code>**spp**</code>
+
+: Specifies the Security Parameters Pointer of the desired Security Association to be used for Authentication TLV support for a given port. Any port with an assigned spp will attach Authentication TLVs to all outbound messages and check for Authentication TLVs on all inbound messages in accordance to the corresponding security association sourced via the `sa_file` directive. Outbound Authentication TLVs are generated using the key specified by `active_key_id`. Not compatible with one step ports or advertised versions less then PTPv2.1. Requires `sa_file` and `active_key_id` directives. Must be in the range of 0 to 255, inclusive. The default is -1 (disabled).
 
 <code>**syncReceiptTimeout**</code>
 
@@ -501,6 +549,11 @@ The default value of `msg_interval_request` is 0 (disabled).
 
 : The revision description string which contains the revisions for node hardware (HW), firmware (FW), and software (SW). Allowed values are of the form `HW;FW;SW` and contain at most 32 utf8 symbols. The default is `;;`.
 
+<code>**sa_file**</code>
+
+: Specifies the location of the file containing Security Associations used for immediate security processing of the Authentication TLV in
+support of the optional security mechanism defined in ieee1588-2019 ch 14.16. See [SECURITY ASSOCIATION OPTIONS](#security-association-options) for information on how this file should be formatted. `spp` and `active_key_id` should be specifed for each port to indicate which Security Association from the `sa_file` should be used. The default is an empty string.
+
 <code>**sanity_freq_limit**</code>
 
 : The maximum allowed frequency offset between uncorrected clock and the system monotonic clock in parts per billion (ppb). This is used as a sanity check of the synchronized clock. When a larger offset is measured, a warning message will be printed and the servo will be reset. If the frequency correction set by `ptp4l` changes unexpectedly between updates of the clock (e.g. due to another process trying to control the clock), a warning message will be printed. When set to 0, the sanity check is disabled. The default is 200000000 (20%).
@@ -616,6 +669,47 @@ shaping. This option is only available with the IEEE 802.3 transport (the `-2` o
 <code>**table_id**</code>
 
 : Each table must begin with a unique, positive table ID.  The port that claims a given table does so by including the ID as the value of its `unicast_master_table` option.
+
+#### SECURITY ASSOCIATION OPTIONS
+
+Each security association must begin with a unique spp. The port that claims a given security association does so by including the spp as the
+value of its `spp` option. Must be in the range of 0 to 255, inclusive.
+
+<code>**seqid_window**</code>
+
+: This option defines how far sequence id of an incoming sync/follow_up message can advance from the last successfully processed sync/follow_up
+before being considered a replayed message. Sync/follow_up seqid tracking is reset on port state change and updated upon successful processing. When set to zero, no seqid checking will be performed. Must be in the range of 0 to 32767 (0x7FFF) inclusive. The default value is 3.
+
+<code>**allow_mutable**</code>
+
+: This option allows for mutable correction fields if on path authentication tlv support is not possible. This option is NOT recommended as it leaves the correction field unprotected. The default value is 0 (disabled).
+
+<code>**key (format: id type length value)**</code>
+
+: Each security association must have at least one key entry. These entries should use the format `id type length value`.
+
+* <code>**Key id**</code>:     Must be in the range of 1 to 2<sup>^32</sup>-1, inclusive.
+* <code>**Key type**</code>:   Allowed are SHA256-128, SHA256, AES128, AES256.
+* <code>**Key length**</code>: Optional verification key length in octets. Used to verify the key value is of the length specified.
+* <code>**Key value**</code>:  Can be read as ASCII characters with the `ASCII:` prefix, as a hexadecimal number with the "HEX:" prefix or as a Base64 encoded string with the `B64:` prefix. If no prefix is included, ASCII is assumed. Key values should be randomally generated if possible. Ciphers (AES) require the key length to match the cipher length (ie AES-128 requires key of 128 bits or 16 bytes).
+
+**Example**
+
+The following is an example of a security associations file:
+
+<pre>
+[security_association]
+spp 0
+allow_mutable 1
+1 SHA256-128 HEX:F8ADC6B8B8E9AA709106BA42481EC9E29607334DE2C3C737A11A12931DB27F8C
+2 SHA256 32 HEX:EE91D469B3A8ADC6AC8EB28E21794C706E08FDE48863828A7B0281AFCA81B17D
+[security_association]
+spp 1
+seqid_window 20
+1 AES128 HEX:FAF48EBA01E7C5966A76CB787AED4E7B
+2 AES256 B64:PKTF9VQz94qPaoAzW4eE3JtFoQ8Ov1OTQSojalWyMbs=
+3 SHA256 26 abcdefghijklmnopqrstuvwxyz
+</pre>
 
 #### TIME SCALE USAGE
 

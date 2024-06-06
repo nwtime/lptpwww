@@ -154,6 +154,10 @@ The global section (indicated as `[global]`) sets the program options. This is t
 
 #### FILE OPTIONS
 
+<code>**active_key_id**</code>
+
+: Used in conjunction with `spp` and `sa_file` directives to specify which key from the `spp` defined Security Association should be used for outbound icv calculations. All Security Assocations are read from the file specified by `sa_file`. Requires `spp` and `sa_file` directives. Must be in the range of 1 to 2<sup>^32</sup>-1, inclusive. The default is 0 (disabled).
+
 <code>**clock_servo**</code>
 
 : The servo which is used to synchronize the local clock. Valid values are `pi` for a PI controller, `linreg` for an adaptive controller using
@@ -201,6 +205,11 @@ The maximum logging level of messages which should be printed. The default is 6 
 
 : The address of the UNIX domain socket to be used by the `refclock_sock` servo. The default is `/var/run/refclock.ptp.sock`.
 
+<code>**sa_file**</code>
+
+: Specifies the location of the file containing Security Associations used for immediate security processing of the Authentication TLV in
+support of the optional security mechanism defined in ieee1588-2019 ch 14.16. See [SECURITY ASSOCIATION OPTIONS](/documentation/ptp4l#security-association-options) for information on how this file should be formatted. `spp` and `active_key_id` should be specifed for each port to indicate which Security Association from the `sa_file` should be used. The default is an empty string.
+
 <code>**sanity_freq_limit**</code>
 
 : The maximum allowed frequency offset between uncorrected clock and the system monotonic clock in parts per billion (ppb). This is used as a sanity check of the synchronized clock. When a larger offset is measured, a warning message will be printed and the servo will be reset. When set to 0, the sanity check is disabled. The default is 200000000 (20%). Same as option `-L` (see above).
@@ -208,6 +217,10 @@ The maximum logging level of messages which should be printed. The default is 6 
 <code>**step_threshold**</code>
 
 : Specifies the step threshold of the servo. It is the maximum offset that the servo corrects by changing the clock frequency instead of stepping the clock. The clock is stepped on start regardless of the option if the offset is larger than 20 microseconds (unless the `-F` option is used). It's  specified  in seconds. The value of 0.0 disables stepping after the start. The default is 0.0. Same as option `-S` (see above).
+
+<code>**spp**</code>
+
+: Specifies the Security Parameters Pointer of the desired Security Association to be used for Authentication TLV support for a given port. Any port with an assigned spp will attach Authentication TLVs to all outbound messages and check for Authentication TLVs on all inbound messages in accordance to the corresponding security association sourced via the `sa_file` directive. Outbound Authentication TLVs are generated using the key specified by `active_key_id`. Not compatible with one step ports or advertised versions less then PTPv2.1. Requires `sa_file` and `active_key_id` directives. Must be in the range of 0 to 255, inclusive. The default is -1 (disabled).
 
 <code>**transportSpecific**</code>
 

@@ -25,12 +25,16 @@ Linux PTP provides the following example configurations (profiles) containing th
 Transparent Clock is used by bridges or routers to assist clocks in measuring and adjusting for packet delay. The transparent clock computes the variable delay as the PTP packets pass through the switch or the router.
 
 * [E2E-TC.cfg](/documentation/configs/e2e-tc/): End to End Transparent Clock.
-
 * [P2P-TC.cfg](/documentation/configs/p2p-tc/): Peer to Peer Transparent Clock.
-
 * [ts2phc-TC.cfg](/documentation/configs/ts2phc-tc/): This example shows ts2phc keeping a group of three Intel i210 cards
 synchronized to each other in order to form a Transparent Clock.
 * [ts2phc-generic.cfg](/documentation/configs/ts2phc-generic/): This example uses a PPS signal from a GPS receiver as an input to the SDP0 pin of an Intel i210 card.
+
+#### Common Mean Link Delay Service
+
+* [CMLDS Client Configuration](/documentation/configs/cmlds-client-cfg/)
+* [CMLDS Server Configuration](/documentation/configs/cmlds-server-cfg/)
+
 
 ##### Miscellaneous
 
@@ -39,6 +43,8 @@ synchronized to each other in order to form a Transparent Clock.
 
 * [gPTP.cfg](/documentation/configs/gptp/): 802.1AS for timing and synchronization of time-sensitive applications in bridged Local Area Networks. 
 * [snmpd.conf](/documentation/configs/snmpd-conf/)
+* [authentication.cfg](/documentation/configs/authentication-cfg/): Example configuration using Authentication TLV support.
+* [sa.cfg](/documentation/configs/sa-cfg/): Example Security Association file as specified by `sa_file` directive.
 
 
 * * *
@@ -54,3 +60,5 @@ synchronized to each other in order to form a Transparent Clock.
 * [timemaster(8)](/documentation/timemaster/): run NTP with PTP as reference clocks
 * [ts2phc(8)](/documentation/ts2phc/): Synchronizes one or more PTP Hardware Clocks using external time stamps
 * [tz2alt](/documentation/tz2alt/): Monitors daylight savings time changes and publishes them to PTP stack.
+
+<br>
