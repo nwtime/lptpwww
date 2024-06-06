@@ -1,4 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Configs on Linux PTP Project</title><link>https://linuxptp.nwtime.org/documentation/configs/</link><description>Recent content in Configs on Linux PTP Project</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 10 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://linuxptp.nwtime.org/documentation/configs/index.xml" rel="self" type="application/rss+xml"/><item><title>Default Configuration</title><link>https://linuxptp.nwtime.org/documentation/configs/default-cfg/</link><pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/default-cfg/</guid><description>Default Configuration The settings in this file (default.cfg) are assumed unless overridden by a custom configuration. Examples of custom configurations are listed in Example Configurations.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Configs on Linux PTP Project</title><link>https://linuxptp.nwtime.org/documentation/configs/</link><description>Recent content in Configs on Linux PTP Project</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://linuxptp.nwtime.org/documentation/configs/index.xml" rel="self" type="application/rss+xml"/><item><title>authentication.cfg</title><link>https://linuxptp.nwtime.org/documentation/configs/authentication-cfg/</link><pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/authentication-cfg/</guid><description>authentication.cfg Example configuration using Authentication TLV support showing attributes which differ from the defaults. See the file, default.cfg, for the complete list of available options.
+[global]
+#
+# spp specifies which security association is valid for a port. It may
+# be specified globally or for each port independently.
+spp 0
+#
+# active_key_id specifies which key from security association is to be
+# used on outbound messages. It may also be specified globally or for
+# each port independently.</description></item><item><title>Security Association Configuration</title><link>https://linuxptp.nwtime.org/documentation/configs/sa-cfg/</link><pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/sa-cfg/</guid><description>Example Security Association file as specified by the sa_file directive. See the file, ptp4l.8, for additional information.
+[security_association]
+#
+# spp is valid from [0-255] inclusive, the port spp value should match
+# for each port this security association is to be enforced.
+#
+spp 0
+#
+# allow_mutable allows for mutable correction fields if on path
+# authentication tlv support is not possible. This option is NOT
+# recommended as it leaves the correction field unprotected.</description></item><item><title>CMLDS Client Configuration</title><link>https://linuxptp.nwtime.org/documentation/configs/cmlds-client-cfg/</link><pubDate>Tue, 20 Feb 2024 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/cmlds-client-cfg/</guid><description>cmlds-client.cfg Common Mean Link Delay Service (CMLDS) example configuration for a CMLDS client, containing those attributes which differ from the defaults. See the file, default.cfg, for the complete list of available options.
+[global]
+[eth1]
+delay_mechanism COMMON_P2P</description></item><item><title>CMLDS Server Configuration</title><link>https://linuxptp.nwtime.org/documentation/configs/cmlds-server-cfg/</link><pubDate>Tue, 20 Feb 2024 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/cmlds-server-cfg/</guid><description>cmlds-server.cfg Common Mean Link Delay Service (CMLDS) example configuration for a CMLDS Link Port, containing those attributes which differ from the defaults. See the file, default.cfg, for the complete list of available options.
+[global]
+clientOnly 1
+clockIdentity C37D50.0000.000000
+free_running 1
+ignore_transport_specific 1
+transportSpecific 2
+uds_address /var/run/cmlds_server
+[eth1]
+delay_mechanism P2P</description></item><item><title>Default Configuration</title><link>https://linuxptp.nwtime.org/documentation/configs/default-cfg/</link><pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate><guid>https://linuxptp.nwtime.org/documentation/configs/default-cfg/</guid><description>Default Configuration The settings in this file (default.cfg) are assumed unless overridden by a custom configuration. Examples of custom configurations are listed in Example Configurations.
 Refer to ptp4l(8) for the definition and possible values for each configuration option.
 [global]
 #
