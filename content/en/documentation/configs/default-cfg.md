@@ -49,6 +49,7 @@ fault_reset_interval	4
 neighborPropDelayThresh	20000000
 serverOnly		0
 G.8275.portDS.localPriority	128
+allowedLostResponses	3
 asCapable               auto
 BMCA                    ptp
 inhibit_announce        0
@@ -60,6 +61,8 @@ power_profile.2017.totalTimeInaccuracy		-1
 power_profile.grandmasterID			0
 power_profile.version				none
 ptp_minor_version       1
+spp			-1
+active_key_id		0
 #
 # Run time options
 #
@@ -106,7 +109,16 @@ write_phase_mode	0
 #
 # Transport options
 #
+cmlds.client_address	/var/run/cmlds_client
+cmlds.domainNumber	0
+cmlds.majorSdoId	2
+cmlds.port		0
+cmlds.server_address	/var/run/cmlds_server
 transportSpecific	0x0
+ptp_dst_ipv4		224.0.1.129
+p2p_dst_ipv4		224.0.0.107
+ptp_dst_ipv6		FF0E:0:0:0:0:0:0:181
+p2p_dst_ipv6		FF02:0:0:0:0:0:0:6B
 ptp_dst_mac		01:1B:19:00:00:00
 p2p_dst_mac		01:80:C2:00:00:0E
 udp_ttl			1

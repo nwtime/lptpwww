@@ -58,6 +58,10 @@ The configuration file is divided into sections. Each section starts with a line
 
 #### GLOBAL OPTIONS
 
+<code>**active_key_id**</code>
+
+: Used in conjunction with `spp` and `sa_file` directives to specify which key from the `spp` defined Security Association should be used for outbound icv calculations. All Security Assocations are read from the file specified by `sa_file`. Requires `spp` and `sa_file` directives. Must be in the range of 1 to 2<sup>^32</sup>-1, inclusive. The default is 0 (disabled).
+
 <code>**domainNumber**</code>
 
 : The domain attribute of the local clock. The default is 0.
@@ -74,8 +78,16 @@ causes the program to use a hard coded table that reflects the known leap second
 
 <code>**message_tag**</code>
 
-: The tag which is added to all messages printed to the standard output or system log. If the tag contains the string `"{level}"`, it will be replaced
-with the log level of the message as a number.  The default is an empty string (which cannot be set in the configuration file as the option requires an argument).
+: The tag which is added to all messages printed to the standard output or system log. If the tag contains the string `"{level}"`, it will be replaced with the log level of the message as a number.  The default is an empty string (which cannot be set in the configuration file as the option requires an argument).
+
+<code>**sa_file**</code>
+
+: Specifies the location of the file containing Security Associations used for immediate security processing of the Authentication TLV in
+support of the optional security mechanism defined in ieee1588-2019 ch 14.16. See [SECURITY ASSOCIATION OPTIONS](/documentation/ptp4l#security-association-options) for information on how this file should be formatted. `spp` and `active_key_id` should be specifed for each port to indicate which Security Association from the `sa_file` should be used. The default is an empty string.
+
+<code>**spp**</code>
+
+: Specifies the Security Parameters Pointer of the desired Security Association to be used for Authentication TLV support for a given port. Any port with an assigned spp will attach Authentication TLVs to all outbound messages and check for Authentication TLVs on all inbound messages in accordance to the corresponding security association sourced via the `sa_file` directive. Outbound Authentication TLVs are generated using the key specified by `active_key_id`. Not compatible with one step ports or advertised versions less then PTPv2.1. Requires `sa_file` and `active_key_id` directives. Must be in the range of 0 to 255, inclusive. The default is -1 (disabled).
 
 <code>**transportSpecific**</code>
 

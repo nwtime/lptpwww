@@ -1,0 +1,43 @@
+---
+title: authentication.cfg
+description: "Example Linux PTP configuration using Authentication TLV support showing attributes which differ from the defaults."
+date: 2024-06-04
+---
+
+### authentication.cfg
+
+Example configuration using Authentication TLV support showing attributes which differ from the defaults.  See the file, [default.cfg](/documentation/configs/default-cfg/), for the complete list of available options.
+
+<pre>
+[global]
+#
+# spp specifies which security association is valid for a port. It may
+# be specified globally or for each port independently.
+spp 0
+#
+# active_key_id specifies which key from security association is to be
+# used on outbound messages. It may also be specified globally or for
+# each port independently.
+#
+active_key_id 2
+#
+# sa_file is defined in global. it contains all security associations
+#
+sa_file configs/sa.cfg
+#
+# eth1 & eth2 override the global spp and active_key_id definitions
+#
+[eth1]
+spp 1
+active_key_id 1
+
+[eth0]
+spp 1
+active_key_id 3
+#
+# eth3 maintains the global spp definition but overrides the
+# active_key_id definition
+#
+[eth3]
+active_key_id 1
+</pre>
