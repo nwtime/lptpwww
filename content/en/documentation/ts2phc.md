@@ -78,6 +78,10 @@ There are two different section types.
 
 : Used in conjunction with `spp` and `sa_file` directives to specify which key from the `spp` defined Security Association should be used for outbound icv calculations. All Security Assocations are read from the file specified by `sa_file`. Requires `spp` and `sa_file` directives. Must be in the range of 1 to 2<sup>^32</sup>-1, inclusive. The default is 0 (disabled).
 
+<code>**clock_servo**</code>
+
+: The servo which is used to synchronize the local clock. Valid values are `pi` for a PI controller, `linreg` for an adaptive controller using linear regression, `ntpshm` and `refclock_sock` for the NTP SHM and chrony SOCK reference clocks respectively to allow another process to synchronize the local clock, and `nullf` for a servo that always dials frequency offset zero (for use in SyncE nodes). The default is `pi`.
+
 <code>**first_step_threshold**</code>
 
 : The maximum offset, specified in seconds, that the servo will correct by changing the clock frequency (phase when using `nullf` servo) instead of stepping the clock. This is only applied on the first update. When set to 0.0, the servo will not step the clock on start. The default is 0.00002 (20 microseconds).
@@ -102,10 +106,60 @@ There are two different section types.
 
 : The tag which is added to all messages printed to the standard output or system log. If the tag contains the string `"{level}"`, it will be replaced with the log level of the message as a number.  The default is an empty string (which cannot be set in the configuration file as the option requires an argument).
 
+<code>**ntpshm_segment**</code>
+
+: The number of the SHM segment used by `ntpshm` servo. The default is 0.
+
+<code>**pi_integral_const**</code>
+
+: The integral constant of the PI controller. When set to 0.0, the integral constant will be set by the following formula from the current
+sync interval. The default is 0.0.
+
+: <code>ki = min(ki_scale * sync^ki_exponent, ki_norm_max / sync)</code>
+
+<code>**pi_integral_exponent**</code>
+
+: The `ki_exponent` constant in the formula used to set the integral constant of the PI controller from the sync interval. The default is 0.4.
+
+<code>**pi_integral_norm_max**</code>
+
+: The `ki_norm_max` constant in the formula used to set the integral constant of the PI controller from the sync interval. The default is 0.3.
+
+<code>**pi_integral_scale**</code>
+
+: The `ki_scale constant` in the formula used to set the integral constant of the PI controller from the sync interval. The default is 0.3.
+
+<code>**pi_proportional_const**</code>
+
+: The proportional constant of the PI controller. When set to 0.0, the proportional constant will be set by the following formula from the current
+sync interval. The default is 0.0.
+
+: <code>kp = min(kp_scale * sync^kp_exponent, kp_norm_max / sync)</code>
+
+<code>**pi_proportional_exponent**</code>
+
+: The `kp_exponent` constant in the formula used to set the proportional constant of the PI controller from the sync interval. The default is -0.3.
+
+<code>**pi_proportional_norm_max**</code>
+
+: The `kp_norm_max` constant in the formula used to set the proportional constant of the PI controller from the sync interval. The default is 0.7.
+
+<code>**pi_proportional_scale**</code>
+
+: The k`p_scale` constant in the formula used to set the proportional constant of the PI controller from the sync interval. The default is 0.7.
+
 <code>**sa_file**</code>
 
 : Specifies the location of the file containing Security Associations used for immediate security processing of the Authentication TLV in
 support of the optional security mechanism defined in ieee1588-2019 ch 14.16. See [SECURITY ASSOCIATION OPTIONS](/documentation/ptp4l#security-association-options) for information on how this file should be formatted. `spp` and `active_key_id` should be specifed for each port to indicate which Security Association from the `sa_file` should be used. The default is an empty string.
+
+<code>**servo_num_offset_values**</code>
+
+: The number of offset values considered in order to transition from the `SERVO_LOCKED` to the `SERVO_LOCKED_STABLE` state. The transition occurs once the last `servo_num_offset_values` offsets are all below the `servo_offset_threshold` value. The default value is 10.
+
+<code>**servo_offset_threshold**</code>
+
+: The offset threshold used in order to transition from the `SERVO_LOCKED` to the `SERVO_LOCKED_STABLE` state.  The transition occurs once the last `servo_num_offset_values` offsets are all below the threshold value. The default value of offset_threshold is 0 (disabled).
 
 <code>**step_threshold**</code>
 
@@ -114,6 +168,14 @@ support of the optional security mechanism defined in ieee1588-2019 ch 14.16. Se
 <code>**spp**</code>
 
 : Specifies the Security Parameters Pointer of the desired Security Association to be used for Authentication TLV support for a given port. Any port with an assigned spp will attach Authentication TLVs to all outbound messages and check for Authentication TLVs on all inbound messages in accordance to the corresponding security association sourced via the `sa_file` directive. Outbound Authentication TLVs are generated using the key specified by `active_key_id`. Not compatible with one step ports or advertised versions less then PTPv2.1. Requires `sa_file` and `active_key_id` directives. Must be in the range of 0 to 255, inclusive. The default is -1 (disabled).
+
+<code>**ts2phc.holdover**</code>
+
+: The holdover interval, specified in seconds. When the ToD information stops working (e.g. GNSS receiver lost its fix), `ts2phc` is allowed for the specified interval to continue synchronizing the target clock as long as the servo is in the `SERVO_LOCKED_STABLE` state. The servo state needs be enabled by the `servo_offset_threshold` option. The holdover is not supported with the `-a` option and when `ts2phc.extts_polarity` is set to `both`. The default is 0 (disabled).
+
+<code>**ts2phc.nmea_delay**</code>
+
+: Specifies the minimum expected delay of NMEA RMC messages in nanoseconds. If the maximum delay is longer than 1 second, or `ts2phc.pulsewidth` if `ts2phc.extts_polarity` is set to `both`, this option needs to be set accordingly to allow the timestamps from NMEA messages to be correctly assigned to pulses from the PPS signal and wrong PPS edges to be rejected if the edge rejection is enabled. The default is 0 nanoseconds.
 
 <code>**ts2phc.nmea_remote_host, ts2phc.nmea_remote_port**</code>
 
