@@ -67,15 +67,22 @@ images = ["/images/featured.webp"]
 
 [params.links]
 [[params.links.user]]
-	name = "Mailing lists"
+	name ="Join the Community on Discourse"
+	url = "https://community.nwtime.org"
+	icon = "/images/icons/discourse.svg"
+	
+[[params.links.user]]
+	name ="Subscribe to NTF's Newsletter"
+	url = "https://www.nwtime.org/subscribe/"
+	icon = "/images/icons/newspaper.svg"
+[[params.links.user]]
+	name = "LinuxPTP Users Mailing List"
 	url = "https://lists.nwtime.org/archive/linuxptp-users"
 	icon = "/images/icons/envelope.svg"
-        desc = "Discussion and help from your fellow users"
 [[params.links.user]]
-	name ="LinkedIn"
+	name ="Follow us on LinkedIn"
 	url = "https://www.linkedin.com/groups/4683708/"
 	icon = "/images/icons/linkedin.svg"
-        desc = "Follow us on LinkedIn"
 
 [[menu.main]]
     name = "About"
